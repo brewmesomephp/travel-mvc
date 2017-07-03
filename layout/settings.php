@@ -35,21 +35,21 @@
 										<label><?=$lang['Age']?></label>
 										<input type="text" name="age" value="<?=$user->age?>" class="form-control" required>
 									</div>
-									<div class="form-group">
+									<div class="form-group" style="display:none;">
 										<label><?=$lang['Height']?></label>
 										<div class="input-group">
 											<input type="text" name="height" value="<?=$user->height?>" class="form-control" required>
 											<span class="input-group-addon"><?=$unit['height']?></span>
 										</div>
 									</div>
-									<div class="form-group">
+									<div class="form-group" style="display:none;">
 										<label><?=$lang['Weight']?></label>
 										<div class="input-group">
 											<input type="text" name="weight" value="<?=$user->weight?>" class="form-control" required>
 											<span class="input-group-addon"><?=$unit['weight']?></span>
 										</div>
 									</div>
-									<div class="form-group">
+									<div class="form-group" style="display:none;">
 										<label><?=$lang['Sexual_Orientation']?></label>
 										<select name="sexual_orientation" class="selectpicker" data-style="no-style form-control" data-menu-style="" required>
 											<option value="1" <?php if($user->sexual_interest == 1) { echo 'selected'; } ?>> <?=$lang['Straight']?> </option>
