@@ -162,6 +162,7 @@
                 <?=$lang[$profile->gender]?>
               </td>
             </tr>
+<!--
             <tr>
               <td align="left">
                 <b><?=$lang['Sexual_Orientation']?></b>
@@ -170,6 +171,7 @@
                 <?=$lang[$sexual_orientation]?>
               </td>
             </tr>
+-->
             <tr>
               <td align="left">
                 <b><?=$lang['Height']?></b>
