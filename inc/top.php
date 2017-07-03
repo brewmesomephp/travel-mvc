@@ -73,11 +73,13 @@ if(empty($last_chatted)) {
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="navigation-example-2">
       <ul class="nav navbar-nav">
+<!--
         <li>
             <a href="<?=$system->getDomain()?>/encounters">
                 <?=$lang['Encounters']?>
             </a>
         </li>
+-->
         <li>
             <a href="<?=$system->getDomain()?>/people">
                 <?=$lang['People']?>
@@ -89,6 +91,11 @@ if(empty($last_chatted)) {
             </a>
         </li>
     </ul>
+    <ul class="nav navbar-nav navbar-right">
+        <li><a href="<?=$system->getDomain()?>/logout.php"><?=$lang['Logout']?></a></li>
+            
+        </ul>
+<!--
     <ul class="nav navbar-nav navbar-right">
         <li>
             <a href="<?=$system->getDomain()?>/vip" class="btn btn-icon btn-sm btn-warning btn-fill">
@@ -147,6 +154,7 @@ if(empty($last_chatted)) {
             </ul>
         </li>
     </ul>
+-->
 </div><!-- /.navbar-collapse -->
 </div><!-- /.container-->
 </nav>
