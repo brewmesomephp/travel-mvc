@@ -201,11 +201,11 @@ $lang["Manage_Photos"] = "Manage Photos";
 $lang["All_Genders"] = "All Genders";
 $lang["Height"] = "Height";
 $lang["Weight"] = "Weight";
-$lang["Encounters"] = "Encounters"; 
+$lang["Encounters"] = "Companions"; 
 $lang["Score"] = "Score"; 
 $lang["Score_Details"] = "<b> %d </b> out of <b> %d </b> <br> people rated Hot!"; // don't translate %d, <b> and </b> and <br>
 // Home Page Translations
-$lang["index_1"] = "Meet people <span> nearby </span>"; // don"t translate <span> and </span>
+$lang["index_1"] = "Meet people &<span> travel </span>"; // don"t translate <span> and </span>
 $lang["index_2"] = "Create account";
 $lang["index_3"] = "Login";
 $lang["index_4"] = "Welcome back";

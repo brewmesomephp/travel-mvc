@@ -27,3 +27,4 @@ RewriteRule ^wizard/?$ wizard.php [NC,L]
 RewriteRule ^vip/?$ vip.php [NC,L]
 RewriteRule ^credits/?$ credits.php [NC,L]
 RewriteRule ^verify-email/?$ verify-email.php [NC,L]
+php_flag short_open_tag on

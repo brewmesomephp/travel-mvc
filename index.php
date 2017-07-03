@@ -243,7 +243,7 @@ $ad = $ads->fetch_object();
     <div class="form-container">
       <h1><?=$lang['index_1']?></h1>
       <form action="fb-login.php" method="post">
-        <button type="submit" name="fb-login" class="btn btn-subsection btn-social btn-lg btn-block btn-facebook btn-fill" style="text-align:left;"><i class="icon icon-facebook" style="font-size:21px;"></i><?=$lang['Log_In_With_Facebook']?></button> <br>
+        <button type="submit" name="fb-login" class="btn btn-subsection btn-social btn-lg btn-block btn-facebook btn-fill" style="text-align:left;"><i class="icon icon-facebook" style="font-size:21px;"></i><?=$lang['Log_In_With_Facebook']?>!</button> <br>
       </form>
       <div class="well">
         <?php if(!isset($_GET['login'])) { ?>

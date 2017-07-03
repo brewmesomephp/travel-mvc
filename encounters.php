@@ -11,7 +11,7 @@ $system->domain = $domain;
 $system->db = $db;
 
 $menu['encounters'] = 'active';
-$page['name'] = 'Encounters';
+$page['name'] = 'Companions';
 
 if(!$auth->isLogged()) {
 	header('Location: index.php');

@@ -11,7 +11,7 @@ $mail = new PHPMailer;
 $system->domain = $domain;
 $system->db = $db;
 
-$page['name'] = 'Encounters';
+$page['name'] = 'Companions';
 
 if(!$auth->isLogged()) {
 	header('Location: index.php');
