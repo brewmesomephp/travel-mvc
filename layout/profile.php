@@ -188,6 +188,7 @@
             </tr>
           </table>
         </div>
+<!--
         <div class="col-lg-3 col-md-3 col-sm-3">
           <h4 class="profile-section-heading"><?=$lang['Score']?></h4>
           <div class="text-center">
@@ -271,6 +272,7 @@
             }
             ?>
           </div>
+-->
         </div>
         <?=$ad->ad_2?>
       </div>
