@@ -107,7 +107,7 @@ if(isset($_POST['login'])) {
   $db->query("UPDATE users SET last_login=UNIX_TIMESTAMP(),ip='".$ip."',longitude='".$longitude."',latitude='".$latitude."' WHERE email='".$email."'");
 
   if($user['updated_preferences'] == 1) {
-    header('Location: '.$domain.'/encounters');
+    header('Location: '.$domain.'/people');
     exit;
   } else {
     header('Location: '.$domain.'/wizard');

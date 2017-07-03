@@ -113,7 +113,7 @@
 <ul class="nav navbar-nav navbar-right"><!-- /.nav navbar-nav navbar-right -->
 
 <li> 
-<a href="<?=$system->getDomain()?>/encounters" style="background:none;"> <b> <i class="fa fa-fw fa-chevron-left"></i> Back </b> </a>
+<a href="<?=$system->getDomain()?>/people" style="background:none;"> <b> <i class="fa fa-fw fa-chevron-left"></i> Back </b> </a>
 </li>
 
 <!-- Start profile -->
