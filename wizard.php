@@ -27,7 +27,7 @@ $system->setUserActive($user->id);
 $settings = $system->getSettings();
 
 if($user->updated_preferences == 1) {
-	header('Location: '.$system->getDomain().'/encounters');
+	header('Location: '.$system->getDomain().'/people');
 	exit;
 }
 
@@ -53,7 +53,7 @@ if(isset($_POST['save'])) {
 		weight='".$weight."',
 		updated_preferences='1' WHERE id='".$user->id."'");
 
-	header('Location: '.$system->getDomain().'/encounters');
+	header('Location: '.$system->getDomain().'/people');
 	exit;
 
 }

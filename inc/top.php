@@ -92,8 +92,11 @@ if(empty($last_chatted)) {
         </li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
+                        <li><a href="<?=$system->getDomain()?>/user/<?=$user->id?>">Me</a></li>
+                            <li><a href="<?=$system->getDomain()?>/settings"><?=$lang['Settings']?></a></li>
+
         <li><a href="<?=$system->getDomain()?>/logout.php"><?=$lang['Logout']?></a></li>
-            
+
         </ul>
 <!--
     <ul class="nav navbar-nav navbar-right">
@@ -158,10 +161,11 @@ if(empty($last_chatted)) {
 </div><!-- /.navbar-collapse -->
 </div><!-- /.container-->
 </nav>
+<!--
 <div class="container-fluid no-padding">
     <div class="spotlight-container well">
         <div class="spotlight-inner">
             <ul class="spotlight"></ul>
     </div>
 </div>
-</div>
+</div>-->
