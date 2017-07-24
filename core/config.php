@@ -19,8 +19,8 @@
 	$minimum_age = '16'; 
 
 	// Units of Measurement
-	$unit['height'] = 'cm';
-	$unit['weight'] = 'kg';
+	$unit['height'] = 'in';
+	$unit['weight'] = 'lb';
 	
 	$db = new mysqli($_db['host'], $_db['user'], $_db['pass'], $_db['name']) or die('MySQL Error');
 

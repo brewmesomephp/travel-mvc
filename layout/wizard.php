@@ -22,7 +22,7 @@
 								<option value="Female"> <?=$lang['Female']?> </option>
 							</select>
 						</div>
-						<div class="form-group">
+						<div class="form-group" style="visibility:hidden;position:absolute;">
 							<label style="font-size:14px;"><?=$lang['Sexual_Orientation']?></label>
 							<select name="sexual_orientation" class="selectpicker" data-style="no-style form-control" data-menu-style="">
 								<option value="1"> <?=$lang['Straight']?> </option>

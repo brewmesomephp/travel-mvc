@@ -80,7 +80,7 @@
 					<option value="2" <?php if($filter->sexual_preference == 2) { echo 'selected'; } ?>> <?=$lang['Female']?> </option>
 				</select>
 			</div>
-			<div class="form-group">
+			<div class="form-group" style="visibility:hidden;position:absolute;">
 				<label><?=$lang['Sexual_Orientation']?></label>
 				<select name="sexual_orientation" class="selectpicker" data-style="no-style form-control" data-menu-style="">
 					<option value="1" <?php if($filter->sexual_orientation == 1) { echo 'selected'; } ?>> <?=$lang['Straight']?> </option>
