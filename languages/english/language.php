@@ -253,3 +253,94 @@ $lang["Verify_Account_Content"] = "Click %s to verify your account";
 $lang["Invalid_Credentials"] = "Invalid Credentials";
 $lang["Verify_Email_Help"] = "We have sent an email to <b> %s </b> <br> Follow the instructions in the email to verify your account"; // don"t translate %s
 $lang["Resend_Email"] = "Resend email";
+
+//Questionnaire
+$lang["Questionnaire_Tab_Title"] = "Questionnaire";
+//
+$lang["Marital_Status"] = "Marital Status";
+$lang["Single"] = "Single";
+$lang["Married"] = "Married";
+$lang["Divorced"] = "Divorced";
+//
+$lang["Has_Traveled"] = "Have you traveled?";
+//
+$lang["Where_Traveled"] = "Where have you traveled?";
+//
+$lang["Preferred_Destination"] = "Where is your preferred destination?";
+////
+$lang["Cruising_Or_Touring"] = "Do you prefer Cruising or Touring?";
+$lang["Cruising"] = "Cruising";
+$lang["Touring"] = "Touring";
+//
+$lang["State_Of_Health"] = "What is your current state of health?";
+$lang["Poor"] = "Need Accessible Accommodation";
+$lang["Average"] = "Average";
+$lang["Excellent"] = "Excellent";
+
+//$lang["Accessible_Accommodation"] = "Do you need accessible accomodation?";
+//
+$lang["Active_Or_Slow_Travel"] = "Do you prefer active travel or to travel at a slower pace?";
+$lang["Active"] = "Active";
+$lang["Slower"] = "Slower";
+
+//
+$lang["Travel_To_Meet"] = "Would you be willing to travel to your destination on your own and meet your travel buddy there?  Your willingness to do this would prompt many more travel buddies.";
+
+//
+$lang["Distance_To_Travel"] = "How far would you be willing to travel to meet your ‘travel buddy’ and plan trips?";
+
+//
+$lang["Spontaneous_Or_Itinerary"] = "Are you more spontaneous or do you like to stick to an itinerary?";
+$lang["Spontaneous"] = "Spontaneous";
+$lang["Itinerary"] = "Stick to Itinerary";
+
+//
+$lang["Smoker"] = "Are you a smoker?";
+
+//
+$lang["Accommodation_Type"] = "What level of accommodation do you prefer?";
+$lang["High_End"] = "High End";
+$lang["Moderate"] = "Moderate";
+$lang["Budget"] = "Budget";
+
+//$lang["Luxury_Traveler"] = "Are you a luxury traveler?";
+//
+$lang["Budget"] = "What is your budget for your upcoming trip?";
+
+//
+$lang["Luggage_Type"] = "Do you like to take a lot of luggage or are you a light packer?";
+$lang["Lot_Of_Luggage"] = "A Lot of Luggage";
+$lang["Light_Packer"] = "Light Packer";
+
+//
+$lang["Foodie"] = "Are you a foodie?";
+
+//
+$lang["Alcohol"] = "Do you enjoy alcoholic beverages and wine?";
+
+$lang["Favorite_Activities"] = "Rate your favorite vacation activities with the most favorite being 5 and least favorite being 1";  //delete from DB
+$lang["Lounge"] = "Beach or poolside lounging";
+$lang["Explore"] = "Exploring and visiting historical sites";
+$lang["Shopping"] = "Shopping";
+$lang["Casino"] = "Casino";
+$lang["Tours"] = "Organized Tours";
+$lang["Food"] = "Food, Gourmet, and Wine Tasting activities";
+$lang["Spa"] = "Spa visits";
+$lang["Sports"] = "Sports";
+$lang["Concerts"] = "Concert and Theater venues";
+
+$lang["Group_Or_Independent"] = "Do you prefer small touring groups and independent travel?";
+$lang["Group"] = "Groups";
+$lang["Independent"] = "Independent";
+    
+$lang["Small_Or_Mega_Ship_Cruising"] = "Do you prefer small ship cruising or do you prefer mega ship cruising?";
+$lang["Small_Ship_Cruising"] = "Small Ship Cruising";
+$lang["Mega_Ship_Cruising"] = "Mega Ship Cruising";
+
+$lang["Active_Or_Sedentary"] = "What do you like to do in your spare time?  Are you more active or more sedentary?";
+$lang["Active"] = "Active";
+$lang["Sedentary"] = "Sedentary";
+
+
+$lang["Primary_Language"] = "Is English your primary language?";
+$lang["Wheres_Next"] = "Where do you want to go next?";

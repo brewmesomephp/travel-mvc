@@ -1182,7 +1182,7 @@ textarea.form-control {
       opacity: 1; }
 
 .alert-danger {
-  background-color: #FF824D;
+  background-color: #7BC1DC;
   color: #B33C12; }
   .alert-danger .close {
     color: #B33C12;
@@ -1438,19 +1438,19 @@ textarea.form-control {
     border-right-color: #FFE28C; }
 
 .popover-danger {
-  background-color: #FF824D;
+  background-color: #7BC1DC;
   color: #FFFFFF; }
   .popover-danger .popover-title {
-    background-color: #FF824D;
+    background-color: #7BC1DC;
     color: #B33C12; }
   .popover-danger.bottom .arrow:after {
-    border-bottom-color: #FF824D; }
+    border-bottom-color: #7BC1DC; }
   .popover-danger.left > .arrow::after {
-    border-left-color: #FF824D; }
+    border-left-color: #7BC1DC; }
   .popover-danger.top > .arrow::after {
-    border-top-color: #FF824D; }
+    border-top-color: #7BC1DC; }
   .popover-danger.right > .arrow::after {
-    border-right-color: #FF824D; }
+    border-right-color: #7BC1DC; }
 
 .section {
   padding: 30px 0;
@@ -1783,7 +1783,7 @@ textarea.form-control {
   background-color: #FFE28C; }
 
 .navbar-ct-danger {
-  background-color: #FF824D; }
+  background-color: #7BC1DC; }
 
 .navbar-transparent {
   padding-top: 15px;
@@ -6618,7 +6618,7 @@ $ct-series-colors: (
       color: #3a283d;
       border: 2px solid #5a283d; }
   .card[data-color="orange"] {
-    background: #FF824D; }
+    background: #7BC1DC; }
     .card[data-color="orange"] .category {
       color: #e95e37; }
     .card[data-color="orange"] .description {
