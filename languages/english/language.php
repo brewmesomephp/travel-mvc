@@ -203,7 +203,7 @@ $lang["Height"] = "Height";
 $lang["Weight"] = "Weight";
 $lang["Encounters"] = "Companions"; 
 $lang["Score"] = "Score"; 
-$lang["Score_Details"] = "<b> %d </b> out of <b> %d </b> <br> people rated Hot!"; // don't translate %d, <b> and </b> and <br>
+$lang["Score_Details"] = "<b> %d </b> out of <b> %d </b> <br> people rated a Good Buddy!"; // don't translate %d, <b> and </b> and <br>
 // Home Page Translations
 $lang["index_1"] = "Travel Together and Save the Single Supplement"; // don"t translate <span> and </span>
 $lang["index_2"] = "Create account";

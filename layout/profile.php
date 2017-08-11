@@ -15,7 +15,7 @@
               <?php $system->getUserBadges($profile); ?>
             </div>
             <?php if($profile->id != $user->id) { ?>
-<!--
+
             <div class="profile-controls pull-right">
               <a href="#" class="btn btn-default btn-icon profile-control" onclick="messageUser(<?=$profile->id?>); return false;">
                 <i class="icon icon-bubble"></i> <span><?=$lang['Chat_Now']?></span>
@@ -23,7 +23,7 @@
                 <i class="icon icon-gift"></i>
               </a>
             </div>
--->
+
             <? } ?>
             <br>
           </div>
@@ -190,8 +190,9 @@
             </tr>
           </table>
         </div>
-<!--
+
         <div class="col-lg-3 col-md-3 col-sm-3">
+<!--
           <h4 class="profile-section-heading"><?=$lang['Score']?></h4>
           <div class="text-center">
             <div class="easy-pie-chart easy-pie-sm text-center">
@@ -203,6 +204,8 @@
                 </p>
               </div>
             </div>
+-->
+<!--
             <div class="clearfix"></div>
             <hr>
             <h4 class="profile-section-heading"><?=$lang['Gifts']?></h4>
@@ -220,6 +223,7 @@
               }
               ?>
             </p>
+-->
             <div class="clearfix"></div>
             <hr>
             <?php
@@ -274,7 +278,7 @@
             }
             ?>
           </div>
--->
+
         </div>
         <?=$ad->ad_2?>
       </div>

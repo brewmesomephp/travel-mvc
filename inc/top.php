@@ -98,8 +98,9 @@ if(empty($last_chatted)) {
         <li><a href="<?=$system->getDomain()?>/logout.php"><?=$lang['Logout']?></a></li>
 
         </ul>
-<!--
+
     <ul class="nav navbar-nav navbar-right">
+<!--
         <li>
             <a href="<?=$system->getDomain()?>/vip" class="btn btn-icon btn-sm btn-warning btn-fill">
                 <i class="ti-crown" style="padding-right:3px;"></i>
@@ -112,6 +113,7 @@ if(empty($last_chatted)) {
                 <?=$lang['Credits']?>
             </a>
         </li>
+-->
         <li class="dropdown">
             <a class="btn btn-sm btn-danger btn-fill notification-count" data-toggle="dropdown">
                 <?=$ucount?>
@@ -142,7 +144,7 @@ if(empty($last_chatted)) {
             </a>
             <ul class="dropdown-menu dropdown-menu-right">
                 <li><a href="<?=$system->getDomain()?>/user/<?=$user->id?>">Me</a></li>
-                <li><a href="<?=$system->getDomain()?>/likes"><?=$lang['Profile_Likes']?></a></li>
+<!--                <li><a href="<?=$system->getDomain()?>/likes"><?=$lang['Profile_Likes']?></a></li>-->
                 <li><a href="<?=$system->getDomain()?>/visitors"><?=$lang['Profile_Visitors']?></a></li>
                 <li><a href="<?=$system->getDomain()?>/settings"><?=$lang['Settings']?></a></li>
                 <?php 
@@ -157,7 +159,6 @@ if(empty($last_chatted)) {
             </ul>
         </li>
     </ul>
--->
 </div><!-- /.navbar-collapse -->
 </div><!-- /.container-->
 </nav>
