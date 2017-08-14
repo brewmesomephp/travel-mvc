@@ -1,5 +1,5 @@
 <?php
-	$domain = 'http://localhost';
+	$domain = 'http://diffseo.com';
 
 	// Database Configuration
 	$_db['host'] = 'localhost';
