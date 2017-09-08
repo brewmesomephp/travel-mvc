@@ -19,7 +19,8 @@
             <div class="profile-controls pull-right">
               <a href="#" class="btn btn-default btn-icon profile-control" onclick="messageUser(<?=$profile->id?>); return false;">
                 <i class="icon icon-bubble"></i> <span><?=$lang['Chat_Now']?></span>
-              <a href="#" class="btn btn-default btn-icon profile-control" data-toggle="modal" data-target="#send-gift">
+              <a href="#" class="btn btn-default btn-icon profile-control" data-toggle="modal" data-target="#send-gift" style=
+"visiblity:hidden; !important;display:none;">
                 <i class="icon icon-gift"></i>
               </a>
             </div>

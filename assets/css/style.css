@@ -23,13 +23,13 @@
 }
 .encounters-name {
   display:inline;
-  font-size: 1.4em !important;
+  font-size:calc(1.515 *  1.4em) !important;
   padding-right:7px;
   font-weight: 400;
 }
 .encounters-name {
   display:inline;
-  font-size: 1.4em !important;
+  font-size:calc(1.515 *  1.4em) !important;
   padding-right:7px;
   font-weight: 600;
 }
@@ -55,7 +55,7 @@
   height: 30px;
   text-align: center;
   padding: 6px 0;
-  font-size: 12px;
+  font-size:calc(1.515 *  12px);
   line-height: 1.428571429;
   border-radius: 15px;
 }
@@ -63,7 +63,7 @@
   width: 50px;
   height: 50px;
   padding: 10px 16px;
-  font-size: 18px;
+  font-size:calc(1.515 *  18px);
   line-height: 1.33;
   border-radius: 25px;
 }
@@ -71,7 +71,7 @@
   width: 70px;
   height: 70px;
   padding: 10px 16px;
-  font-size: 24px;
+  font-size:calc(1.515 *  24px);
   line-height: 1.33;
   border-radius: 35px;
 }
@@ -84,7 +84,7 @@
   vertical-align: text-bottom !important;
 }
 .profile-section {
-  font-size: 14px;
+  font-size:calc(1.515 *  14px);
 }
 .profile-controls {
   position: relative;
@@ -94,10 +94,10 @@
   margin-right: 5px;
 }
 .profile-control i {
-  font-size: 16px;
+  font-size:calc(1.515 *  16px);
 }
 .profile-control span {
-  font-size: 15.5px;
+  font-size:calc(1.515 *  15.5px);
   font-weight: 600;
   margin-left: 5px;
 }
@@ -110,7 +110,7 @@
   position: absolute;
   bottom: 5px;
   right: 5px;
-  font-size: 12px;
+  font-size:calc(1.515 *  12px);
   z-index: 0;
 }
 .profile-section-heading {
@@ -144,7 +144,7 @@
   border-radius: 10px;
   color: #FFFFFF;
   font-weight: 500;
-  font-size: 0.75em;
+  font-size:calc(1.515 *  0.75em);
   line-height: 1;
   display: inline-block;
   padding-left: 0.8em;
@@ -255,7 +255,7 @@
   opacity: 0.7;
 }
 .box .title {
-  font-size: 1.2em;
+  font-size:calc(1.515 *  1.2em);
   opacity: 1;
 }
 .image-container {
@@ -289,7 +289,7 @@
   color: #FFF;
 }
 .photo-upload-select {
-  font-size:20px;
+  font-size:calc(1.515 * 20px);
   padding:10px;
 }
 #photo_file {
@@ -310,7 +310,7 @@
   padding: 35px;
 }
 .vip-page-body h4 {
-  font-size: 1.4em;
+  font-size:calc(1.515 *  1.4em);
 }
 .vip-page-user {
   height: 90px;
@@ -355,7 +355,7 @@
 .vip-feature-1 p {
   padding-top: 10px;
   text-align: center;
-  font-size: 0.95em;
+  font-size:calc(1.515 *  0.95em);
 }
 .vip-feature-2 {
   float: left;
@@ -370,7 +370,7 @@
 .vip-feature-2 p {
   padding-top: 10px;
   text-align: center;
-  font-size: 0.95em;
+  font-size:calc(1.515 *  0.95em);
 }
 .vip-feature-3 {
   float:left;
@@ -385,7 +385,7 @@
 .vip-feature-3 p {
   padding-top: 10px;
   text-align: center;
-  font-size: 0.95em;
+  font-size:calc(1.515 *  0.95em);
 }
 .vip-secondary-features {
   padding-top: 0px;
@@ -403,7 +403,7 @@
 .vip-secondary-1 p {
   padding-top: 10px;
   text-align: center;
-  font-size: 13px;
+  font-size:calc(1.515 *  13px);
 }
 .vip-secondary-2 {
   float: left;
@@ -418,7 +418,7 @@
 .vip-secondary-2 p {
   padding-top: 10px;
   text-align: center;
-  font-size: 13px;
+  font-size:calc(1.515 *  13px);
 }
 .vip-secondary-3 {
   float:left;
@@ -433,7 +433,7 @@
 .vip-secondary-3 p {
   padding-top: 10px;
   text-align: center;
-  font-size: 13px;
+  font-size:calc(1.515 *  13px);
 }
 .modal-important {
   background-color: #252422;
@@ -469,7 +469,7 @@
  padding-left: 20px;
 }
 .vip-duration {
- font-size: 14px;
+ font-size:calc(1.515 *  14px);
  display: block;
  padding: 1px;
 }
@@ -497,7 +497,7 @@
   float: none;
 }
 .credits-page-center h4 {
-  font-size:1.5em;
+  font-size:calc(1.515 * 1.5em);
   margin-top:0px;
 }
 .credits-page-center a {
@@ -520,7 +520,7 @@
 .credit-feature-1 p {
   padding-top: 10px;
   text-align: center;
-  font-size: 14px;
+  font-size:calc(1.515 *  14px);
 }
 .credit-feature-1 a,button {
   margin-top: 10px;
@@ -538,7 +538,7 @@
 .credit-feature-2 p {
   padding-top: 10px;
   text-align: center;
-  font-size: 14px;
+  font-size:calc(1.515 *  14px);
 }
 .credit-feature-2 a,button {
   margin-top: 10px;
@@ -557,13 +557,13 @@
 .credit-feature-3 p {
   padding-top: 10px;
   text-align: center;
-  font-size: 14px;
+  font-size:calc(1.515 *  14px);
 }
 .credit-feature-3 a,button {
   margin-top: 10px;
 }
 .credits-page-counter {
-  font-size: 1.2em;
+  font-size:calc(1.515 *  1.2em);
   color: #FFf;
   position:absolute;
   top:17px;
@@ -571,7 +571,7 @@
   cursor: pointer;
 }
 .credits-page-counter i {
-  font-size: 0.9em;
+  font-size:calc(1.515 *  0.9em);
 }
 .vip-page-popular-user {
   position: relative;
@@ -631,21 +631,22 @@
 }
 .sidebar-user-area .user-name {
   display:inline;
-  font-size: 1.2em;
+  font-size:calc(1.515 *  1.2em);
   position:relative;
   left: 5px;
   bottom: 10px;
 }
 .sidebar-user-area .user-popularity {
   display:inline;
-  font-size: 0.7em;
+  font-size:calc(1.515 *  0.7em);
   position:relative;
   right: 80px;
   top: 7px;
 }
 .page-title {
   font-weight: 600;
-  font-size: 0.9em;
+    font-size:calc(1.515 * 30px);
+/*  font-size:calc(1.515 *  0.9em);*/
 }
 .chat-modal {
   border-top-left-radius: 10px !important;
@@ -703,7 +704,7 @@
 }
 .chat-sidebar-usermsg {
   font-weight: 400;
-  font-size: 0.9em;
+  font-size:calc(1.515 *  0.9em);
   position:relative;
   left:63px;
   bottom:32px;
@@ -725,7 +726,7 @@
   background-color: #D9D9D9;
 }
 .chat-sidebar-favorite i {
-  font-size: 14px;
+  font-size:calc(1.515 *  14px);
 }
 .chat-sidebar-favorite i:hover {
   color: #F3BB45;
@@ -739,7 +740,7 @@
   height: 70px;
 }
 .chat-receiver-name {
-  font-size: 20px;
+  font-size:calc(1.515 *  20px);
   display: inline;
   padding-right: 7px;
   position: relative;
@@ -772,7 +773,7 @@
   outline: none;
 }
 .chat-addons a i {
-  font-size: 19px;
+  font-size:calc(1.515 *  19px);
 }
 .chat-addons a i:hover {
   color: #EB5E28;
@@ -786,7 +787,7 @@
   width: 76.9%;
   height: 32px;
   font-weight: 400;
-  font-size: 14px;
+  font-size:calc(1.515 *  14px);
   border-radius: 20px !important;
   background-color: #FFF !important;
   border: 1px solid #666157 !important;
@@ -814,12 +815,12 @@
   margin-right:4px;
 }
 .chat-content-username {
-  font-size:  0.9em;
+  font-size:calc(1.515 *   0.9em);
   line-height:  30px;
   font-weight: 500;
 }
 .chat-content-text {
-  font-size:  0.9em;
+  font-size:calc(1.515 *   0.9em);
   position: relative;
   bottom: 18px;
   margin: 0px;
@@ -856,7 +857,7 @@
   position: relative;
   display: block;
   bottom: 39px;
-  font-size: 10px;
+  font-size:calc(1.515 *  10px);
 }
 .chat-placeholder-image {
   height: 220px;
@@ -988,10 +989,10 @@
   margin-right: 10px;
 }
 .sticker-unlock-name {
-  font-size: 1em;
+  font-size:calc(1.515 *  1em);
 }
 .sticker-disclaimer {
-  font-size: 0.8em;
+  font-size:calc(1.515 *  0.8em);
   font-weight: 300;
   position: relative;
   bottom: 10px;
@@ -1039,7 +1040,7 @@
   padding-bottom: 0px;
 }
 .close span {
-  font-size: 40px;
+  font-size:calc(1.515 *  40px);
   font-weight: 300;
   position: relative;
   left: 0px;
@@ -1050,18 +1051,18 @@
   margin-bottom: 10px;
 }
 .send-gift-diclaimer {
-  font-size: 14px;
+  font-size:calc(1.515 *  14px);
 }
 .send-gift-success i {
-  font-size: 70px;
+  font-size:calc(1.515 *  70px);
   color: #2ECC71;
 }
 .send-gift-success p, .send-gift-error p {
-  font-size: 14px;
+  font-size:calc(1.515 *  14px);
   padding-top: 10px;
 }
 .send-gift-error i {
-  font-size: 70px;
+  font-size:calc(1.515 *  70px);
   color: #EB5E28;
 }
 .chat-content-text .emojione {

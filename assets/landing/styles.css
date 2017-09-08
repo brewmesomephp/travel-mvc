@@ -53,9 +53,9 @@ body {
     background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.3))), url("bg-header.jpg");
     background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.1)), url("bg-header.jpg");
     background-size: cover; /* or contain depending on what you want */
-    background-position: center center;
+    background-position: bottom bottom;
     background-repeat: no-repeat;
-    background-position: 100% 20%;
+    background-position: 100% 100%;
     height: 100vh;
 }
 .intro-container {

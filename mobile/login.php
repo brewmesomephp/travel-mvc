@@ -70,7 +70,7 @@ if($check->num_rows >= 1) {
     <div class="page-content" id="main-stack" data-scroll="0">
       <div class="image-bg-fixed-height">
         <div class="logo-login"></div>
-        <p class="text-white"> The best place to meet new people </p>
+        <p class="text-white"> Travel Together </p>
         <div class="bottom-section padding">
           <div class="w-form">
             <form action="" method="post">
