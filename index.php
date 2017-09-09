@@ -247,7 +247,7 @@ $ad = $ads->fetch_object();
       </form>
       <div class="well">
         <?php if(!isset($_GET['login'])) { ?>
-        <div class="form-title"><?=$lang['index_2']?></div>
+        <div class="form-title"><?=$lang['index_2a']?></div>
         <div class="clearfix"></div>
         <form action="" method="post">
           <input type="text" name="full_name" placeholder="<?=$lang['Full_Name']?>" class="form-control" required>  <br>

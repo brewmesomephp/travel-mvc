@@ -13,7 +13,7 @@ $system->domain = $domain;
 $system->db = $db;
 
 $menu['settings'] = 'active';
-$page['name'] = 'Settings';
+$page['name'] = 'Matching Questionnaire';
 
 if(!$auth->isLogged()) {
 	header('Location: index.php');

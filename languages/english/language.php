@@ -72,7 +72,7 @@ $lang["day"] = "day";
 $lang["days"] = "days";
 $lang["Username"] = "Username";
 $lang["Password"] = "Password";
-$lang["Login"] = "Login";
+$lang["Login"] = "Click Here To Login";
 $lang["Register"] = "Register";
 $lang["Yes"] = "Yes";
 $lang["No_Account"] = "No account?";
@@ -206,9 +206,10 @@ $lang["Score"] = "Score";
 $lang["Score_Details"] = "<b> %d </b> out of <b> %d </b> <br> people rated a Good Buddy!"; // don't translate %d, <b> and </b> and <br>
 // Home Page Translations
 $lang["index_1"] = "Travel Together and Save the Single Supplement"; // don"t translate <span> and </span>
-$lang["index_2"] = "Create account";
+$lang["index_2"] = "Create An Account";
+$lang["index_2a"] = "Create An Account or <a href='http://localhost/index.php?login'>Login Here</a>";
 $lang["index_3"] = "Login";
-$lang["index_4"] = "Welcome back";
+$lang["index_4"] = "Login or <a href='http://localhost/index.php?register'>Create An Account</a>";
 $lang["index_5"] = "<b> %d </b> people waiting for you"; // don"t translate %d, <b> and </b>
 $lang["index_6"] = "Join now and meet them."; 
 $lang["index_7"] = "Sign Up"; 
@@ -318,6 +319,7 @@ $lang["Foodie"] = "Are you a foodie?";
 //
 $lang["Alcohol"] = "Do you enjoy alcoholic beverages and wine?";
 
+//rate from 1 to 5 on questionnaire
 $lang["Favorite_Activities"] = "Rate your favorite vacation activities with the most favorite being 5 and least favorite being 1";  //delete from DB
 $lang["Lounge"] = "Beach or poolside lounging";
 $lang["Explore"] = "Exploring and visiting historical sites";
@@ -325,9 +327,9 @@ $lang["Shopping"] = "Shopping";
 $lang["Casino"] = "Casino";
 $lang["Tours"] = "Organized Tours";
 $lang["Food"] = "Food, Gourmet, and Wine Tasting activities";
-$lang["Spa"] = "Spa visits";
+$lang["Spa"] = "Spa Visits";
 $lang["Sports"] = "Sports";
-$lang["Concerts"] = "Concert and Theater venues";
+$lang["Concerts"] = "Concert and Theater Venues";
 
 $lang["Group_Or_Independent"] = "Do you prefer small touring groups and independent travel?";
 $lang["Group"] = "Groups";

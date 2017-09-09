@@ -288,8 +288,104 @@
                                         <br />
 <!--                                        must go in  and add these items to the database-->
                                         <label><?=$lang['Lounge']?></label>
-                                        <?php rating_scale($user->sexual_interest, "sexual_orientation");?>
+                                        <?php rating_scale($user->rating_lounge_poolside_beach, "rating_lounge_poolside_beach");?>
 									</div>
+                                    
+                                    <div class="form-group">
+                                        <label><?=$lang['Explore']?></label>
+                                        <?php rating_scale($user->rating_explore, "rating_explore");?>
+									</div>
+                                    <div class="form-group">
+                                        <label><?=$lang['Shopping']?></label>
+                                        <?php rating_scale($user->rating_shopping, "rating_shopping");?>
+									</div>
+                                    <div class="form-group">
+                                        <label><?=$lang['Casino']?></label>
+                                        <?php rating_scale($user->rating_casino, "rating_casino");?>
+									</div>
+                                    <div class="form-group">
+                                        <label><?=$lang['Tours']?></label>
+                                        <?php rating_scale($user->rating_tours, "rating_tours");?>
+									</div>
+                                    <div class="form-group">
+                                        <label><?=$lang['Food']?></label>
+                                        <?php rating_scale($user->rating_food, "rating_food");?>
+									</div>
+                                    <div class="form-group">
+                                        <label><?=$lang['Spa']?></label>
+                                        <?php rating_scale($user->rating_spa, "rating_spa");?>
+									</div>
+                                    <div class="form-group">
+                                        <label><?=$lang['Sports']?></label>
+                                        <?php rating_scale($user->rating_sports, "rating_sports");?>
+									</div>
+                                    <div class="form-group">
+                                        <label><?=$lang['Concerts']?></label>
+                                        <?php rating_scale($user->rating_concerts, "rating_concerts");?>
+									</div>
+                                    
+                                    
+                                    
+                                    
+                                    <!-- back to non-rating based questionnaire -->
+                                    
+                                    <!-- Group or Independent -->
+                                    <div class="form-group">
+										<label><?=$lang['Group_Or_Independent']?></label>
+										<select name="group_or_independent" class="selectpicker" data-style="no-style form-control" data-menu-style="" required>
+											<?php
+											if($user->luggage_type == 'Group') {
+												echo '<option value="Independent"> '.$lang['Independent'].' </option>';
+												echo '<option value="Group" selected> '.$lang['Group'].' </option>';
+											} 
+                                            else{
+												echo '<option value="Independent" selected> '.$lang['Independent'].' </option>';
+												echo '<option value="Group"> '.$lang['Group'].' </option>';
+											} 
+                                    ?>
+                                    </select>
+									</div>
+                                    
+                                    <!-- Small_Or_Mega_Ship_Cruisingr -->
+                                    <div class="form-group">
+										<label><?=$lang['Small_Or_Mega_Ship_Cruising']?></label>
+										<select name="small_or_mega_ship_cruising" class="selectpicker" data-style="no-style form-control" data-menu-style="" required>
+											<?php
+											if($user->luggage_type == 'Mega_Ship_Cruising') {
+												echo '<option value="Small_Ship_Cruising"> '.$lang['Small_Ship_Cruising'].' </option>';
+												echo '<option value="Mega_Ship_Cruising" selected> '.$lang['Mega_Ship_Cruising'].' </option>';
+											} 
+                                            else{
+												echo '<option value="Small_Ship_Cruising" selected> '.$lang['Small_Ship_Cruising'].' </option>';
+												echo '<option value="Mega_Ship_Cruising"> '.$lang['Mega_Ship_Cruising'].' </option>';
+											} 
+                                    ?>
+                                    </select>
+									</div>
+                                    
+                                    <!-- Active_Or_Sedentary -->
+                                    <div class="form-group">
+										<label><?=$lang['Active_Or_Sedentary']?></label>
+										<select name="active_or_sedentary" class="selectpicker" data-style="no-style form-control" data-menu-style="" required>
+											<?php
+											if($user->luggage_type == 'Active') {
+												echo '<option value="Sedentary"> '.$lang['Sedentary'].' </option>';
+												echo '<option value="Active" selected> '.$lang['Active'].' </option>';
+											} 
+                                            else{
+												echo '<option value="Sedentary" selected> '.$lang['Sedentary'].' </option>';
+												echo '<option value="Active"> '.$lang['Active'].' </option>';
+											} 
+                                    ?>
+                                    </select>
+									</div>
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
                                     
                                     <?php
                                         function rating_scale($userCol, $select_name)

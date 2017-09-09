@@ -1804,8 +1804,8 @@ textarea.form-control {
   padding: 0px 0px 0px 5px; }
 
 .profile-photo-small {
-  height: calc(40px * 1.215);
-  width: calc(40px * 1.215); }
+  height: calc(40px * 1.415);
+  width: calc(40px * 1.415); }
 
 .img-rounded {
   border-radius: 8px;
@@ -1813,7 +1813,7 @@ textarea.form-control {
   transition: opacity 0.5s ease 0s; }
 
 .img-details {
-  min-height: 50px;
+  min-height: calc(50px * 1.215);
   padding: 0 4px 0.5em; }
 
 .img-details .author {
@@ -6686,8 +6686,8 @@ $ct-series-colors: (
     .card-user .author .title small {
       color: #ccc5b9; }
 .card-user .avatar {
-  width: 100px;
-  height: 100px;
+  width: calc(100px * 1.515);
+  height: calc(100px * 1.515);
   border-radius: 50%;
   position: relative;
   margin-bottom: 15px; }
