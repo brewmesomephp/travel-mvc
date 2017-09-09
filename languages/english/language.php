@@ -344,5 +344,5 @@ $lang["Active"] = "Active";
 $lang["Sedentary"] = "Sedentary";
 
 
-$lang["Primary_Language"] = "Is English your primary language?";
+$lang["Primary_Language"] = "What is your primary language?";
 $lang["Wheres_Next"] = "Where do you want to go next?";

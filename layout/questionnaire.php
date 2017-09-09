@@ -14,12 +14,7 @@
 								</h3>
 								<hr class="mt-0">
 								<form action="" method="post">
-<!--
-									<div class="form-group">
-										<label><?=$lang['Full_Name']?></label>
-										<input type="text" name="full_name" value="<?=$user->marital_status?>" class="form-control" required>
-									</div>
--->
+
 									<div class="form-group">
 										<label><?=$lang['Marital_Status']?></label>
 										<select name="marital_status" class="selectpicker" data-style="no-style form-control" data-menu-style="" required>
@@ -138,22 +133,8 @@
                                     ?>
                                     </select>
 									</div>
-                                    <!-- travel to meet-->
-                                    <div class="form-group">
-										<label><?=$lang['Travel_To_Meet']?></label>
-										<select name="travel_to_meet" class="selectpicker" data-style="no-style form-control" data-menu-style="" required>
-											<?php
-											if($user->travel_to_meet == 'No') {
-												echo '<option value="Yes"> '.$lang['Yes'].' </option>';
-												echo '<option value="No" selected> '.$lang['No'].' </option>';
-											} 
-                                            else{
-												echo '<option value="Yes" selected> '.$lang['Yes'].' </option>';
-												echo '<option value="No"> '.$lang['No'].' </option>';
-											} 
-                                    ?>
-                                    </select>
-									</div>
+                                    
+                                    
                                     
                                     <!-- Distance To Travel -->
                                     <div class="form-group">
@@ -215,7 +196,7 @@
 											} 
                                             else{
 												echo '<option value="Excellent" selected> '.$lang['High_End'].' </option>';
-												echo '<option value="Average"> '.$lang['Moderate'].' </option>';
+												echo '<option value="Moderate"> '.$lang['Moderate'].' </option>';
 												echo '<option value="Budget"> '.$lang['Budget'].' </option>';
 											} 
                                     ?>
@@ -282,7 +263,43 @@
                                     </select>
 									</div>
                                     
-                                    <!-- Favorite activities -->
+                                    
+                                    
+                                    
+      
+                                    
+                                    
+                                    
+                                    
+                                    <?php
+                                        function rating_scale($userCol, $select_name)
+                                        {?>
+                                            <select name="<?=$select_name?>" class="selectpicker" data-style="no-style form-control" data-menu-style="" required>
+                                                <option value="5" <?php if($userCol == 5) { echo 'selected'; } ?>> 5 </option>
+                                                <option value="4" <?php if($userCol == 4) { echo 'selected'; } ?>> 4 </option>
+                                                <option value="3" <?php if($userCol == 3) { echo 'selected'; } ?>> 3 </option>
+                                                <option value="2" <?php if($userCol == 2) { echo 'selected'; } ?>> 2 </option>
+                                                <option value="1" <?php if($userCol == 1) { echo 'selected'; } ?>> 1 </option>
+                                            </select>
+                                        <?}
+                                        
+                                    ?>
+
+									
+
+									<button type="submit" name="save_1" class="btn btn-theme"> <?=$lang['Save']?> </button>
+								</form>
+							</div>
+                            
+                            
+							<div class="col-md-5 pull-left">
+                                <form action="" method="post">
+
+									<h3>
+										<span style="font-size:22px;" class="font600"><?=$lang['Account_Tab_Title']?></span>
+									</h3>
+									<hr class="mt-0">
+									<!-- Favorite activities -->
                                     <div class="form-group">
 										<label><?=$lang['Favorite_Activities']?></label>
                                         <br />
@@ -334,7 +351,7 @@
 										<label><?=$lang['Group_Or_Independent']?></label>
 										<select name="group_or_independent" class="selectpicker" data-style="no-style form-control" data-menu-style="" required>
 											<?php
-											if($user->luggage_type == 'Group') {
+											if($user->group_or_independent == 'Group') {
 												echo '<option value="Independent"> '.$lang['Independent'].' </option>';
 												echo '<option value="Group" selected> '.$lang['Group'].' </option>';
 											} 
@@ -351,7 +368,7 @@
 										<label><?=$lang['Small_Or_Mega_Ship_Cruising']?></label>
 										<select name="small_or_mega_ship_cruising" class="selectpicker" data-style="no-style form-control" data-menu-style="" required>
 											<?php
-											if($user->luggage_type == 'Mega_Ship_Cruising') {
+											if($user->small_or_mega_ship_cruising == 'Mega_Ship_Cruising') {
 												echo '<option value="Small_Ship_Cruising"> '.$lang['Small_Ship_Cruising'].' </option>';
 												echo '<option value="Mega_Ship_Cruising" selected> '.$lang['Mega_Ship_Cruising'].' </option>';
 											} 
@@ -368,7 +385,7 @@
 										<label><?=$lang['Active_Or_Sedentary']?></label>
 										<select name="active_or_sedentary" class="selectpicker" data-style="no-style form-control" data-menu-style="" required>
 											<?php
-											if($user->luggage_type == 'Active') {
+											if($user->active_or_sedentary == 'Active') {
 												echo '<option value="Sedentary"> '.$lang['Sedentary'].' </option>';
 												echo '<option value="Active" selected> '.$lang['Active'].' </option>';
 											} 
@@ -378,119 +395,92 @@
 											} 
                                     ?>
                                     </select>
-									</div>
+									</div>   
                                     
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    <?php
-                                        function rating_scale($userCol, $select_name)
-                                        {?>
-                                            <select name="<?=$select_name?>" class="selectpicker" data-style="no-style form-control" data-menu-style="" required>
-                                                <option value="1" <?php if($userCol == 1) { echo 'selected'; } ?>> 1 </option>
-                                                <option value="2" <?php if($userCol == 2) { echo 'selected'; } ?>> 2 </option>
-                                                <option value="3" <?php if($userCol == 3) { echo 'selected'; } ?>> 3 </option>
-                                                <option value="4" <?php if($userCol == 4) { echo 'selected'; } ?>> 4 </option>
-                                                <option value="5" <?php if($userCol == 5) { echo 'selected'; } ?>> 5 </option>
-                                            </select>
-                                        <?}
-                                        
-                                    ?>
-                                    
-                                    
-                                    
-									<div class="form-group" style="display:none;">
-										<label><?=$lang['Height']?></label>
-										<div class="input-group">
-											<input type="text" name="height" value="<?=$user->height?>" class="form-control" required>
-											<span class="input-group-addon"><?=$unit['height']?></span>
-										</div>
-									</div>
-									<div class="form-group" style="display:none;">
-										<label><?=$lang['Weight']?></label>
-										<div class="input-group">
-											<input type="text" name="weight" value="<?=$user->weight?>" class="form-control" required>
-											<span class="input-group-addon"><?=$unit['weight']?></span>
-										</div>
-									</div>
-									<div class="form-group" style="display:none;">
-										<label><?=$lang['Sexual_Orientation']?></label>
-										<select name="sexual_orientation" class="selectpicker" data-style="no-style form-control" data-menu-style="" required>
-											<option value="1" <?php if($user->sexual_interest == 1) { echo 'selected'; } ?>> <?=$lang['Straight']?> </option>
-											<option value="2" <?php if($user->sexual_interest == 2) { echo 'selected'; } ?>> <?=$lang['Gay']?> </option>
-											<option value="3" <?php if($user->sexual_interest == 3) { echo 'selected'; } ?>> <?=$lang['Lesbian']?> </option>
-											<option value="4" <?php if($user->sexual_interest == 4) { echo 'selected'; } ?>> <?=$lang['Bisexual']?> </option>
-										</select>
-									</div>
-									
 
-									<button type="submit" name="save_1" class="btn btn-theme"> <?=$lang['Save']?> </button>
-								</form>
-							</div>
-                            
-<!--
-                            
-							<div class="col-md-5 pull-left">
-								<form action="" method="post" enctype="multipart/form-data">
-									<h3>
-										<span style="font-size:22px;" class="font600"><?=$lang['Account_Tab_Title']?></span>
-									</h3>
-									<hr class="mt-0">
-									<div class="form-group">
-										<label><?=$lang['Profile_Photo']?></label>
-										<div class="fileinput fileinput-new input-group" data-provides="fileinput">
-											<div class="form-control" data-trigger="fileinput"><i class="glyphicon glyphicon-file fileinput-exists"></i> <span class="fileinput-filename"></span></div>
-											<span class="input-group-addon btn btn-inverse btn-file"><span class="fileinput-new">Select file</span><span class="fileinput-exists">Change</span><input type="hidden"><input type="file" name="profile_photo"></span>
-											<a href="#" class="input-group-addon btn btn-danger fileinput-exists" data-dismiss="fileinput">Remove</a>
-										</div>
-									</div>
-									<div class="form-group">
-										<label><?=$lang['Email']?></label>
-										<input type="email" name="email" value="<?=$user->email?>" class="form-control" required>
-									</div>
-									<div class="form-group">
-										<label><?=$lang['New_Password']?></label>
-										<input type="password" name="new_password" class="form-control">
-									</div>
-									<div class="form-group">
-										<label><?=$lang['Confirm_Password']?></label>
-										<input type="password" name="confirm_new_password" class="form-control">
-									</div>
-									<div class="form-group">
-										<label><?=$lang['Language']?></label>
-										<select name="website_language" class="selectpicker" data-style="no-style form-control" data-menu-style="">
-											<?php
-											$lang_dir = scandir('languages');
-											foreach($lang_dir as $file) {
-												if(file_exists('languages/'.$file.'/language.php')) {
-													if($user->language == $file) {
-														echo '<option value="'.$file.'" selected>'.ucfirst($file).'</option>';
-													} else {
-														echo '<option value="'.$file.'">'.ucfirst($file).'</option>';
-													}
-												}
-											}
-											?>
-										</select>
-									</div>
-									<div class="form-group">
-										<label><?=$lang['Instagram_Username']?></label>
-										<div class="input-group">
-											<input type="text" name="instagram_username" value="<?=$user->instagram_username?>" class="form-control">
-											<div class="input-group-btn">
-												<a href="?sync" class="btn btn-default"> <i class="icon icon-loop2"></i> Sync </a>
-											</div>
-										</div>
-										<small class="help-block text-muted"><?=$lang['Instagram_Tab_Description']?></small>
+                                    
+                                    <div class="form-group">
+                                        <label><?=$lang['Primary_Language']?></label>
+                                    
+                                            <select name="primary_language" class="selectpicker" data-style="no-style form-control" data-menu-style="" required>
+                                              <option value="Afrikanns" <?php if($user->primary_language == "Afrikanns") { echo 'selected'; } ?>>Afrikanns</option>
+                                              <option value="Albanian" <?php if($user->primary_language == "Albanian") { echo 'selected'; } ?>>Albanian</option>
+                                              <option value="Arabic" <?php if($user->primary_language == "Arabic") { echo 'selected'; } ?>>Arabic</option>
+                                              <option value="Armenian" <?php if($user->primary_language == "Armenian") { echo 'selected'; } ?>>Armenian</option>
+                                              <option value="Basque" <?php if($user->primary_language == "Basque") { echo 'selected'; } ?>>Basque</option>
+                                              <option value="Bengali" <?php if($user->primary_language == "Bengali") { echo 'selected'; } ?>>Bengali</option>
+                                              <option value="Bulgarian" <?php if($user->primary_language == "Bulgarian") { echo 'selected'; } ?>>Bulgarian</option>
+                                              <option value="Catalan" <?php if($user->primary_language == "Catalan") { echo 'selected'; } ?>>Catalan</option>
+                                              <option value="Cambodian" <?php if($user->primary_language == "Cambodian") { echo 'selected'; } ?>>Cambodian</option>
+                                              <option value="Mandarin" <?php if($user->primary_language == "Mandarin") { echo 'selected'; } ?>>Chinese (Mandarin)</option>
+                                              <option value="Croation" <?php if($user->primary_language == "Croation") { echo 'selected'; } ?>>Croation</option>
+                                              <option value="Czech" <?php if($user->primary_language == "Czech") { echo 'selected'; } ?>>Czech</option>
+                                              <option value="Danish" <?php if($user->primary_language == "Danish") { echo 'selected'; } ?>>Danish</option>
+                                              <option value="Dutch" <?php if($user->primary_language == "Dutch") { echo 'selected'; } ?>>Dutch</option>
+                                              <option value="English" <?php if($user->primary_language == "English") { echo 'selected'; } ?>>English</option>
+                                              <option value="Estonian" <?php if($user->primary_language == "Estonian") { echo 'selected'; } ?>>Estonian</option>
+                                              <option value="Fiji" <?php if($user->primary_language == "Fiji") { echo 'selected'; } ?>>Fiji</option>
+                                              <option value="Finnish" <?php if($user->primary_language == "Finnish") { echo 'selected'; } ?>>Finnish</option>
+                                              <option value="French" <?php if($user->primary_language == "French") { echo 'selected'; } ?>>French</option>
+                                              <option value="Georgian" <?php if($user->primary_language == "Georgian") { echo 'selected'; } ?>>Georgian</option>
+                                              <option value="German" <?php if($user->primary_language == "German") { echo 'selected'; } ?>>German</option>
+                                              <option value="Greek" <?php if($user->primary_language == "Greek") { echo 'selected'; } ?>>Greek</option>
+                                              <option value="Gujarati" <?php if($user->primary_language == "Gujarati") { echo 'selected'; } ?>>Gujarati</option>
+                                              <option value="Hebrew" <?php if($user->primary_language == "Hebrew") { echo 'selected'; } ?>>Hebrew</option>
+                                              <option value="Hindi" <?php if($user->primary_language == "Hindi") { echo 'selected'; } ?>>Hindi</option>
+                                              <option value="Hungarian" <?php if($user->primary_language == "Hungarian") { echo 'selected'; } ?>>Hungarian</option>
+                                              <option value="Icelandic" <?php if($user->primary_language == "Icelandic") { echo 'selected'; } ?>>Icelandic</option>
+                                              <option value="Indonesian" <?php if($user->primary_language == "Indonesian") { echo 'selected'; } ?>>Indonesian</option>
+                                              <option value="Irish" <?php if($user->primary_language == "Irish") { echo 'selected'; } ?>>Irish</option>
+                                              <option value="Italian" <?php if($user->primary_language == "Italian") { echo 'selected'; } ?>>Italian</option>
+                                              <option value="Japanese" <?php if($user->primary_language == "Japanese") { echo 'selected'; } ?>>Japanese</option>
+                                              <option value="Javanese" <?php if($user->primary_language == "Javanese") { echo 'selected'; } ?>>Javanese</option>
+                                              <option value="Korean" <?php if($user->primary_language == "Korean") { echo 'selected'; } ?>>Korean</option>
+                                              <option value="Latin" <?php if($user->primary_language == "Latin") { echo 'selected'; } ?>>Latin</option>
+                                              <option value="Latvian" <?php if($user->primary_language == "Latvian") { echo 'selected'; } ?>>Latvian</option>
+                                              <option value="Lithuanian" <?php if($user->primary_language == "Lithuanian") { echo 'selected'; } ?>>Lithuanian</option>
+                                              <option value="Macedonian" <?php if($user->primary_language == "Macedonian") { echo 'selected'; } ?>>Macedonian</option>
+                                              <option value="Malay" <?php if($user->primary_language == "Malay") { echo 'selected'; } ?>>Malay</option>
+                                              <option value="Malayalam" <?php if($user->primary_language == "Malayalam") { echo 'selected'; } ?>>Malayalam</option>
+                                              <option value="Maltese" <?php if($user->primary_language == "Maltese") { echo 'selected'; } ?>>Maltese</option>
+                                              <option value="Maori" <?php if($user->primary_language == "Maori") { echo 'selected'; } ?>>Maori</option>
+                                              <option value="Marathi" <?php if($user->primary_language == "Marathi") { echo 'selected'; } ?>>Marathi</option>
+                                              <option value="Mongolian" <?php if($user->primary_language == "Mongolian") { echo 'selected'; } ?>>Mongolian</option>
+                                              <option value="Nepali" <?php if($user->primary_language == "Nepali") { echo 'selected'; } ?>>Nepali</option>
+                                              <option value="Norwegian" <?php if($user->primary_language == "Norwegian") { echo 'selected'; } ?>>Norwegian</option>
+                                              <option value="Persian" <?php if($user->primary_language == "Persian") { echo 'selected'; } ?>>Persian</option>
+                                              <option value="Polish" <?php if($user->primary_language == "Polish") { echo 'selected'; } ?>>Polish</option>
+                                              <option value="Portuguese" <?php if($user->primary_language == "Portuguese") { echo 'selected'; } ?>>Portuguese</option>
+                                              <option value="Punjabi" <?php if($user->primary_language == "Punjabi") { echo 'selected'; } ?>>Punjabi</option>
+                                              <option value="Quechua" <?php if($user->primary_language == "Quechua") { echo 'selected'; } ?>>Quechua</option>
+                                              <option value="Romanian" <?php if($user->primary_language == "Romanian") { echo 'selected'; } ?>>Romanian</option>
+                                              <option value="Russian" <?php if($user->primary_language == "Russian") { echo 'selected'; } ?>>Russian</option>
+                                              <option value="Samoan" <?php if($user->primary_language == "Samoan") { echo 'selected'; } ?>>Samoan</option>
+                                              <option value="Serbian" <?php if($user->primary_language == "Serbian") { echo 'selected'; } ?>>Serbian</option>
+                                              <option value="Slovak" <?php if($user->primary_language == "Slovak") { echo 'selected'; } ?>>Slovak</option>
+                                              <option value="Slovenian" <?php if($user->primary_language == "Slovenian") { echo 'selected'; } ?>>Slovenian</option>
+                                              <option value="Spanish" <?php if($user->primary_language == "Spanish") { echo 'selected'; } ?>>Spanish</option>
+                                              <option value="Swahili" <?php if($user->primary_language == "Swahili") { echo 'selected'; } ?>>Swahili</option>
+                                              <option value="Swedish " <?php if($user->primary_language == "Swedish") { echo 'selected'; } ?>>Swedish </option>
+                                              <option value="Tamil" <?php if($user->primary_language == "Tamil") { echo 'selected'; } ?>>Tamil</option>
+                                              <option value="Tatar" <?php if($user->primary_language == "Tatar") { echo 'selected'; } ?>>Tatar</option>
+                                              <option value="Telugu" <?php if($user->primary_language == "Telugu") { echo 'selected'; } ?>>Telugu</option>
+                                              <option value="Thai" <?php if($user->primary_language == "Thai") { echo 'selected'; } ?>>Thai</option>
+                                              <option value="Tibetan" <?php if($user->primary_language == "Tibetan") { echo 'selected'; } ?>>Tibetan</option>
+                                              <option value="Tonga" <?php if($user->primary_language == "Tonga") { echo 'selected'; } ?>>Tonga</option>
+                                              <option value="Turkish" <?php if($user->primary_language == "Turkish") { echo 'selected'; } ?>>Turkish</option>
+                                              <option value="Ukranian" <?php if($user->primary_language == "Ukranian") { echo 'selected'; } ?>>Ukranian</option>
+                                              <option value="Urdu" <?php if($user->primary_language == "Urdu") { echo 'selected'; } ?>>Urdu</option>
+                                              <option value="Uzbek" <?php if($user->primary_language == "Uzbek") { echo 'selected'; } ?>>Uzbek</option>
+                                              <option value="Vietnamese" <?php if($user->primary_language == "Vietnamese") { echo 'selected'; } ?>>Vietnamese</option>
+                                              <option value="Welsh" <?php if($user->primary_language == "Welsh") { echo 'selected'; } ?>>Welsh</option>
+                                              <option value="Xhosa" <?php if($user->primary_language == "Xhosa") { echo 'selected'; } ?>>Xhosa</option>
+                                            </select>                                
 									</div>
 									<button type="submit" name="save_2" class="btn btn-theme"> <?=$lang['Save']?> </button>
 								</form>
 							</div>
--->
+
 
 <!--
 							<div class="col-md-2 pull-right">

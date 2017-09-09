@@ -1,4 +1,5 @@
 <?php
+//error_reporting(E_ALL);
 class System {
 
 	public $domain;
@@ -191,7 +192,9 @@ class System {
 }
 
 // Multi-Language
-if(!isset($_SESSION['language'])) {
+
+if (empty($_SESSION['language'])){$language = 'english';}
+if(!isset($_SESSION['language']) || ($_SESSION['language'] == '')) {
 	$language = 'english';
 } else {
 	$language = $_SESSION['language'];
