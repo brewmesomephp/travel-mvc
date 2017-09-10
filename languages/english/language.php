@@ -256,6 +256,7 @@ $lang["Verify_Email_Help"] = "We have sent an email to <b> %s </b> <br> Follow t
 $lang["Resend_Email"] = "Resend email";
 
 //Questionnaire
+$lang["Questionnaire"] = "Questionnaire";
 $lang["Questionnaire_Tab_Title"] = "Buddy Questionnaire";
 //
 $lang["Marital_Status"] = "Marital Status";

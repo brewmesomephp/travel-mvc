@@ -296,7 +296,7 @@
                                 <form action="" method="post">
 
 									<h3>
-										<span style="font-size:22px;" class="font600"><?=$lang['Account_Tab_Title']?></span>
+										<span style="font-size:22px;" class="font600"></span>
 									</h3>
 									<hr class="mt-0">
 									<!-- Favorite activities -->

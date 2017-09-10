@@ -90,6 +90,11 @@ if(empty($last_chatted)) {
                 <?=$lang['Messages']?>
             </a>
         </li>
+        <li>
+            <a href="<?=$system->getDomain()?>/questionnaire.php">
+                <?=$lang['Questionnaire']?>
+            </a>
+        </li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
                         <li><a href="<?=$system->getDomain()?>/user/<?=$user->id?>">Me</a></li>
