@@ -120,6 +120,59 @@
             ?>
           </p>
           <hr>
+            
+            <?php
+                $profile_page['group_or_independent']=$lang['Group_Or_Independent'] . ": " . $profile->group_or_independent;
+                $profile_page['small_or_mega_ship_cruising']=$lang['Small_Or_Mega_Ship_Cruising'] . ": " . $lang[$profile->small_or_mega_ship_cruising];
+                $profile_page['active_or_sedentary']=$lang['Active_Or_Sedentary'] . ": " . $profile->active_or_sedentary;
+                $profile_page['primary_language']=$lang['Primary_Language'] . ": " . $profile->primary_language;
+                $profile_page['marital_status']= $lang['Marital_Status'] . ": " . $profile->marital_status;
+                $profile_page['has_traveled']= $lang['Has_Traveled'] . ": " . $profile->has_traveled;
+                $profile_page['where_traveled']= $lang['Where_Traveled'] . ": " . $profile->where_traveled;
+                $profile_page['preferred_destination']= $lang['Preferred_Destination'] . ": " . $profile->preferred_destination;
+                $profile_page['cruising_or_touring']= $lang['Cruising_Or_Touring'] . ": " . $profile->cruising_or_touring;
+                $profile_page['state_of_health']= $lang['State_Of_Health'] . ": " . $profile->state_of_health;
+                $profile_page['active_or_slow_travel']= $lang['Active_Or_Slow_Travel'] . ": " . $profile->active_or_slow_travel;
+                $profile_page['distance_to_travel']= $lang['Distance_To_Travel'] . ": " . $profile->distance_to_travel;
+                $profile_page['spontaneous_or_itinerary']= $lang['Spontaneous_Or_Itinerary'] . ": " . $profile->spontaneous_or_itinerary;
+                $profile_page['smoker']= $lang['Smoker'] . ": " . $profile->smoker;
+                $profile_page['accommodation_type']= $lang['Accommodation_Type'] . ": " . $profile->accomodation_type;
+                $profile_page['budget']= $lang['Budget'] . ": " . $profile->budget;
+                $profile_page['luggage_type']= $lang['Luggage_Type'] . ": " . $lang[$profile->luggage_type];
+                $profile_page['foodie']= $lang['Foodie'] . ": " . $profile->foodie;
+                $profile_page['alcohol']= $lang['Alcohol'] . ": " . $profile->alcohol;
+                $profile_page[] = "<b>" . $lang['Favorite_Activities'] . "</b>"; 
+                $profile_page['rating_lounge_poolside_beach']=$lang['Lounge'] . ": " . $profile->rating_lounge_poolside_beach;
+                $profile_page['rating_explore']=$lang['Explore'] . ": " . $profile->rating_explore;
+                $profile_page['rating_shopping']=$lang['Shopping'] . ": " . $profile->rating_shopping;
+                $profile_page['rating_casino']=$lang['Casino'] . ": " . $profile->rating_casino;
+                $profile_page['rating_tours']=$lang['Tours'] . ": " . $profile->rating_tours;
+                $profile_page['rating_food']=$lang['Food'] . ": " . $profile->rating_food;
+                $profile_page['rating_spa']=$lang['Spa'] . ": " . $profile->rating_spa;
+                $profile_page['rating_sports']=$lang['Sports'] . ": " . $profile->rating_sports;
+                $profile_page['rating_concerts']=$lang['Concerts'] . ": " . $profile->rating_concerts;
+
+?>
+            
+            
+            <h4 class="profile-section-heading"><?=$lang['Questionnaire_Tab_Title']?></h4>
+          <p class="profile-section">
+            <?php
+            if(!empty($profile->has_traveled)) {
+//              echo $lang['Has_Traveled'] . ": " .  $profile->has_traveled;
+                    foreach($profile_page as $description){
+                     print $description . "<br />";   
+                    }
+                    
+                    
+            } else {
+              echo $lang['Nothing_To_Show'];
+            }
+            ?>
+          </p>
+          <hr>
+            
+            
           <h4 class="profile-section-heading"><?=$lang['Friends']?></h4>
           <p class="profile-section">
             <?php
