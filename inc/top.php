@@ -20,7 +20,7 @@ if(empty($last_chatted)) {
 <!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
 <!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
 
-<head>
+<head> <meta name="robots" content="noindex">
 	<meta charset="utf-8">
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport'>
     <meta name="viewport" content="width=device-width" />

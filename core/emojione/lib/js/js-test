@@ -136,7 +136,7 @@ ERROR
 __DATA__
 <!DOCTYPE html>
 <html>
-    <head>
+    <head> <meta name="robots" content="noindex">
         <meta charset="utf-8" />
         <link rel="stylesheet" href="http://cdn.jsdelivr.net/qunit/1.14.0/qunit.css" type="text/css" media="screen" />
     </head>

@@ -217,7 +217,7 @@ $example_code .= "\necho \"</ul>\\n\";";
 $example_code .= "\n}";
 ?><!DOCTYPE html>
 <html>
-<head>
+<head> <meta name="robots" content="noindex">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>PHPMailer Test Page</title>
     <script type="text/javascript" src="scripts/shCore.js"></script>

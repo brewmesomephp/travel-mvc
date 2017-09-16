@@ -161,10 +161,10 @@ $ad = $ads->fetch_object();
 <!--[if IE 8 ]><html class="ie ie8 ie-lt10 ie-lt9 no-js" lang="en"><![endif]-->
 <!--[if IE 9 ]><html class="ie ie9 ie-lt10 no-js" lang="en"><![endif]-->
 <!--[if gt IE 9]><!--><html class="no-js" lang="en"><!--<![endif]-->
-<head>
+<head> <meta name="robots" content="noindex">
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta charset="utf-8">
-  <title><?php echo $site_name?> - Online Dating Community</title>
+  <title><?php echo $site_name?> - Online Traveling Community</title>
   <meta name="keywords" content="" />
   <meta name="description" content="" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
