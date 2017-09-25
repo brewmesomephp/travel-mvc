@@ -300,8 +300,7 @@
 									</h3>
 									<hr class="mt-0">
 									<!-- Favorite activities -->
-                                    <
-                                    div class="form-group">
+                                    <div class="form-group">
 										<label><?=$lang['Favorite_Activities']?></label>
                                         <br />
 <!--                                        must go in  and add these items to the database-->
