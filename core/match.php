@@ -123,6 +123,27 @@ class Match {
         $diff['active_or_sedentary'] = abs($u['active_or_sedentary'] != $r['active_or_sedentary']);
         $diff['primary_language'] = abs($u['primary_language'] != $r['primary_language']);
         
+        //now get the distance between the two user's locations
+        /* then find the distance each of them are willing to travel to meet each other to discuss the trip
+         * add those two "distance to travel" together. this means that even if they live 100 miles away from each other,
+         * if their maximum travel distance is only 50 miles each, they can still meet directly in the middle, therefore
+         * still making their traveling possible.
+         * Example: Joe lives in San Diego and Billy Lives in Los Angeles (120 Miles Away)
+         * Joe is only willing to travel 30 miles to meet his travel buddy
+         * Billy is willing to travel 100 miles to meet his travel buddy
+         * Since 30 + 100 = 130mi possible traveling distance, and the distance between the two is only 120
+         * 130mi > 120mi and therefore, they can meet up to travel, and they are a match.
+         */
+        $u_lat = $u['latitude'];
+        $u_lon = $u['longitude'];
+        $r_lat = $u['latitude'];
+        $r_lon = $u['longitude'];
+        $miles_distance = distance($u_lat, $u_lon, $r_lat, $r_lon);
+        $total_travel_to_meet = intval($u['distance_to_travel']) + intval($r['distance_to_travel']);
+        if ($total_travel_to_meet > $miles_distance){
+               
+        }
+        
         //adds up the amount of mismatches (subtracts matching_locations because this is a matching variable, not mismatching)
         $non_matching = array_sum($diff) - $diff['matching_locations'];
         $total_possible_matches = count($diff) - 1;
@@ -173,7 +194,7 @@ class Match {
         return $this->scoreBoard;
     }
     
-    public function distance($lat1, $lon1, $lat2, $lon2, $unit) {
+    public function distance($lat1, $lon1, $lat2, $lon2, $unit="m") {
             $theta = $lon1 - $lon2;
             $dist = sin(deg2rad($lat1)) * sin(deg2rad($lat2)) +  cos(deg2rad($lat1)) * cos(deg2rad($lat2)) * cos(deg2rad($theta));
             $dist = acos($dist);
@@ -190,7 +211,7 @@ class Match {
             }
     }
     
-    public function get
+    
 
 }
 
