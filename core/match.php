@@ -1,7 +1,10 @@
 <?php
 //error_reporting(E_ALL);
+
+
+
 class Match {
-    
+    nmjjmnmj
     public $domain;
 	public $db;
     
@@ -47,6 +50,7 @@ class Match {
 		$user = $user->fetch_object();
 		$this->userAnswers = $user;
     }
+
     
    /**
      * compareUserAnswers explanation: 
@@ -193,7 +197,7 @@ class Match {
         
         return $this->scoreBoard;
     }
-    
+
     public function distance($lat1, $lon1, $lat2, $lon2, $unit="m") {
             $theta = $lon1 - $lon2;
             $dist = sin(deg2rad($lat1)) * sin(deg2rad($lat2)) +  cos(deg2rad($lat1)) * cos(deg2rad($lat2)) * cos(deg2rad($theta));
@@ -210,8 +214,26 @@ class Match {
                 return $miles;
             }
     }
-    
-    
+
+    function displayTables(){
+        $tables = $this->db->query("SELECT TABLE.NAME from INFORMATION_SCHEMA.TABLES");
+
+    }
+
+    function displayCriteria(){
+        $criteria = $this->db->query("SELECT COLUMN_NAME from INFORMATION_SCHEMA.COLUMNS where TABLE_NAME='users'");
+    }
+
+    function displayWeights(){
+
+    }
+
+    function addMore(){
+
+    }
+
+
+
 
 }
 
