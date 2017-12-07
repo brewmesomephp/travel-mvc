@@ -178,6 +178,32 @@ INSERT INTO `gifts` VALUES (1,20,12,'26.png',1456263594),(4,20,12,'9.png',145626
 UNLOCK TABLES;
 
 --
+-- Table structure for table `matching`
+--
+
+DROP TABLE IF EXISTS `matching`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `matching` (
+  `matchid` int(12) NOT NULL AUTO_INCREMENT,
+  `title` varchar(128) NOT NULL,
+  `tables` varchar(256) NOT NULL,
+  `criteria` varchar(2048) NOT NULL,
+  `importance` varchar(4096) NOT NULL,
+  PRIMARY KEY (`matchid`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `matching`
+--
+
+LOCK TABLES `matching` WRITE;
+/*!40000 ALTER TABLE `matching` DISABLE KEYS */;
+/*!40000 ALTER TABLE `matching` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `messages`
 --
 
@@ -679,4 +705,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-11-24 16:48:23
+-- Dump completed on 2017-12-06 21:21:01

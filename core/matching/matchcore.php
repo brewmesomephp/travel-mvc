@@ -1,5 +1,5 @@
 <?php
-namespace  MatchCore;
+namespace  MatchingCore;
 //error_reporting(E_ALL);
 
 
@@ -32,7 +32,6 @@ class App {
     function __construct($userId){
         //set teh user id, and set the answers to their answers
         $this->userId = $userId;
-        $this->setUserAnswers();
     }
 
     function getCurrentMatch(){
@@ -62,7 +61,7 @@ class App {
 
     function setTables(){
         //sanitize data inside post from Table checklist, then insert them into the database under the current matchID
-        $tables = isset($_GET['setTables']) ? $_POST : -0;
+        $tables = isset($_GET['setTables']) ? $_POST : 0;
         if ($tables){
             foreach($tables as $key => $postData){
                 $tables[$key] = filter_input(INPUT_POST, $postData, FILTER_SANITIZE_STRING);
@@ -103,7 +102,7 @@ class App {
 
         // sanitize data inside post from Table checklist, then insert them into the database under the current matchID
 
-        $criteria = isset($_GET['setCriteria']) ? $_POST : -0;
+        $criteria = isset($_GET['criteria']) ? $_POST : 0;
         if ($criteria){
             foreach($criteria as $key => $postData){
                 $criteria[$key] = filter_input(INPUT_POST, $postData, FILTER_SANITIZE_STRING);
@@ -117,16 +116,30 @@ class App {
     }
 
 
-    function selectTables(){
-
+    function setImportance(){
+//        go back in and fix this -> we need to explode the value of each textbox by (table name, columnname, weight)
+        $importance = isset($_GET['importance']) ? $_POST : 0;
+        if ($importance){
+            foreach($importance as $key => $postData){
+                $importance[$key] = filter_input(INPUT_POST, $postData, FILTER_SANITIZE_NUMBER_FLOAT);
+            }
+            $dbColumns = implode(",", $importance);
+            $tableQuery = $this->db->prepare("UPDATE matching SET dbcolumns = :dbColumns WHERE matchid = :matchID");
+            $tableQuery->bindParam(':dbColumns', $dbColumns);
+            $tableQuery->bindParam(':matchID', $this->matchID);
+            $tableQuery->execute();
+        }
     }
+
 
     function selectColumns(){
 
     }
 
     function displayTables(){
-        $tables = $this->db->query("SELECT TABLE.NAME from INFORMATION_SCHEMA.TABLES");
+        $tables = $this->db->query("SELECT TABLE_NAME from INFORMATION_SCHEMA.TABLES");
+        $result = $tables->fetchAll();
+        }
 
     }
 

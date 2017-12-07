@@ -24,5 +24,5 @@
 	
 	$db = new mysqli($_db['host'], $_db['user'], $_db['pass'], $_db['name']) or die('MySQL Error');
 
-	error_reporting(0);
+	error_reporting(E_ALL);
 	

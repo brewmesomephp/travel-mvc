@@ -4,10 +4,10 @@
 
 
 class Match {
-    nmjjmnmj
-    public $domain;
+
 	public $db;
-    
+
+
     protected $userId; //user ID of logged in
     protected $remoteUserId; //user ID of comparison user
     
@@ -17,27 +17,41 @@ class Match {
     
     private $scoreBoard;
     
-    function __construct(){
-        
+    function __construct($userId = "", $db){
+        if (isset($userId)) {
+            $this->userId = $userId;
+        }
+            elseif (isset($_SESSION['user_id'])){
+                $this->userId = $_SESSION['user_id'];
+            }
+
+//        $this->run();
+        $this->db = $db;
+
+        $this->run();
     }
-    
-    function __construct($userId){
-        //set teh user id, and set the answers to their answers
-        $this->userId = $userId;
-        $this->setUserAnswers();
-    }
+
     
     public function setUser($userId){
         //set teh user id, and set the answers to their answers
         $this->userId = $userId;
-        $this->setUserAnswers();
-
     }
+
+
     
-    private function setUserAnswers($userId = $this->userId){
-        $user = $this->db->query("SELECT * FROM users WHERE id='".$userId."'");
-		$user = $user->fetch_object();
+    private function setUserAnswers($userId =""){
+
+        if ($userId == ""){
+            $userId = $this->userId;
+        }
+        $user = $this->db->query("SELECT * FROM users WHERE id='$userId'");
+        $user = $user->fetch_object();
+        $user = json_encode($user);
+        $user = json_decode($user, true);
+
+
 		$this->userAnswers = $user;
+
     }
     
     
@@ -45,7 +59,7 @@ class Match {
         $this->remoteUserId = $remoteUserId;
     }
     
-    private function setRemoteUserAnswers($userId = $this->remoteUserId){
+    private function setRemoteUserAnswers($userId){
         $user = $this->db->query("SELECT * FROM users WHERE id='".$userId."'");
 		$user = $user->fetch_object();
 		$this->userAnswers = $user;
@@ -87,8 +101,8 @@ class Match {
         
         //Compare the arrays and store the count in $diff['matching_locations']
         //this specifically compares people's locations visited prior
-        $u_locations = explode("," $u['where_traveled']); 
-        $r_locations = explode("," $r['where_traveled']);
+        $u_locations = explode("," ,$u['where_traveled']);
+        $r_locations = explode("," ,$r['where_traveled']);
         $matching_locations = array_unique(array_intersect($u_locations, $r_locations));
         $diff['matching_locations'] = count($matching_locations);
         
@@ -158,15 +172,61 @@ class Match {
         
         return $diff;
     }
-    
+
+    function debug($variable){
+
+        if (is_array($variable) || sizeof($variable) > 1){
+            print "is array, or is > 1";
+            $variable = json_encode($variable);
+        }
+        print "<p style='font-size:18p; font-variant: small-caps;color:#888;'><u>debug: </u>"; var_dump($variable); print"</p><br />";
+    }
     public function run(){
         //here we have the User, Traveler A, who was previously set and good to go.
-        
+
         //now we will run through all other users, and compare values :)
-        
+
         //first we must get the array of all other users
-        $remoteUser = $this->db->query("SELECT * FROM users WHERE id!='".$this->userId."'");
-		$remoteUserAnswers = $remoteUser->fetch_object();
+        $this->setUserAnswers($this->userId);
+        $this->debug($this->userAnswers);
+        $this->debug($this->userId);
+
+        $db = $this->db;
+        $myId = $this->userId;
+        if ($result = $db->query("SELECT `id`,`latitude`, `longitude`, `interests`, `is_vip`,`has_traveled`, `where_traveled`, `preferred_destination`, `cruising_or_touring`, `state_of_health`, `active_or_slow_travel`, `distance_to_travel`, `spontaneous_or_itinerary`, `smoker`, `accommodation_type`, `budget`, `luggage_type`, `foodie`, `alcohol`, `rating_lounge_poolside_beach`, `rating_explore`, `rating_shopping`, `rating_casino`, `rating_tours`, `rating_food`, `rating_spa`, `rating_sports`, `rating_concerts`, `group_or_independent`, `small_or_mega_ship_cruising`, `active_or_sedentary` FROM users WHERE id!='$myId' ORDER BY id DESC")) {
+            printf("Select returned %d rows.\n", $result->num_rows);
+            foreach($result as $key=>$res){
+                $this->remoteUserAnswers[$res['id']] = json_encode($res);
+                print "\$this->remoteUserAnswers[\$res['id']] = json_encode(\$res); = " . print_r(json_encode($res, 1));
+//                print $res['id'];
+//                print json_encode($res);
+//                print "<br />";
+
+//                print "res is " . print_r($res, 1) ;
+//                print $this->remoteAnswers[$res['id']];
+            }
+            print_r($this->remoteUserAnswers);
+//print_r($this->remote)
+            /* free result set */
+            $result->close();
+        }
+
+
+        $this->debug(sizeof($stmt));
+
+        $this->debug($stmt);
+
+
+        //		$remoteUserAnswers = json_decode(json_encode($remoteUser->fetch_object()), true);
+
+		print "<h1>\$remoteUserAnswers</h1>";
+		print "<stong>$remoteUserAnswers</stong>";
+
+
+
+        $q = $this->db->prepare('SELECT * FROM users WHERE id != :user_id ');
+        $q->execute([':user_id' => $this->userId]);
+        $user = $q->fetchAll();
 
         //then, one at a time (foreach) we will compare values, and set the differences in an array
         $u=$this->userAnswers;
@@ -175,7 +235,7 @@ class Match {
             $this->remoteUserId = $r['id'];
             
             //Now we're going to compare those answers
-            $diff = this->compareUserAnswers($u, $r);
+            $diff = $this->compareUserAnswers($u, $r);
                 
             //now we're going to store the differences in answers to the diffAnswers array
             $this->diffAnswers[$this->remoteUserId] = $diff;

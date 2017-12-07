@@ -1,10 +1,54 @@
 <?php
+//header('Content-type: text/plain');
 /**
  * Created by PhpStorm.
  * User: Joe
  * Date: 11/19/2017
  * Time: 11:14 PM
  */
+
+
+require_once "core/config.php";
+require_once "core/match.php";
+//$q = "SELECT * FROM users WHERE id!='476' LIMIT 7";
+//$a = $db->query($q, MYSQLI_ASSOC);
+
+//if ($result = $db->query("SELECT * FROM users WHERE id>'473'  LIMIT 10")) {
+//    printf("Select returned %d rows.\n", $result->num_rows);
+//    foreach($result as $key=>$res){
+//        print "res is " . print_r($res, 1) ;
+//    }
+//
+//    /* free result set */
+//    $result->close();
+//}
+
+
+
+$match = new Match("476", $db);
+$rnd = rand(1, 291382);
+?>
+<div class="stateful_response"></div>
+<button class="stateful" >Click me</button>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $(".stateful").click(function () {
+            var passover = 1;
+
+            $.post("test/stateful_test.php", {serial: <?=$rnd?>}, function (result) {
+                $(".stateful_response").html(result);
+//               $(".response_content").html("Tree Branch");
+
+            })
+        })
+    });
+</script>
+
+<?php
+
+
 print "<h1>Accessing the string value of an array key</h1>";
 print "<h3>Using the following PHP code we will attempt to display the contents of the \$key variable, or the associative
 array key being accessed at the time of the call.</h3>";
@@ -106,7 +150,7 @@ $array['datingProfile'][] = "HairLength";
 $array['datingProfile'][] = "Teeth";
 
 $js = json_encode($array);
-print "<h2>json_enconde(\$array)</h2>";
+print "<h2>json_encode(\$array)</h2>";
 print $js;
 
 $js_decode_assoc = json_decode($js, true);
@@ -138,6 +182,11 @@ $js=json_encode($array);
 $explode = "\$jj = explode(\" \", \"fah q\");";
 $joe = eval($explode);
 print $js;
+$x= 0;
+
+
+$ak = array_keys($array);
+print $array[$ak[0]][1];
 //print_r( $js );
 print "<br />";
 print "<h1>Vehicle</h1>";
@@ -169,9 +218,206 @@ print "<h1>Vehicle</h1>";
 <?php
 $tableCriteria = isset($_GET['step']) ? $_POST : -1;
 
+
+
 foreach($tableCriteria as $key=>$tableName){
     print "key: $key <br />" ;
     print print_r($tableName, 1). "<br />";
 }
+
+$array2[] = 2;
+print implode(",", $array2);
+
+$z['xyz'][] = "hi";
+$z['xyz'][] = "ha";
+$z['xyz'][] = "hl";
+$z['xyz'][] = "hlq";
+$z['xyz'][] = "hlZd";
+$z['xyz'][] = "hlZd";
+$z['xyz'][] = "hlZd";
+$z['abc'] = "9yijdl";
+
+$z['xyz']['fuck'] = "9yijdl";
+$z['xyz']['you'] = "9yijdl";
+
+
+$zk = array_keys($z);
+print_r($ak);
+
+foreach($z as $item=>$value){
+    $value = print_r($value, true);
+
+
+    print "<br />item: $item<br />";
+    print ", value: $value<br />";
+}
+
+
+
+?>
+<form action="test.php?step=7" method="post">
+    <label for="tableOne">
+        <span>Table</span>
+    </label>
+    <br />
+    <input type="checkbox" name="tableOne[criteria0]" value="Body" checked> I am looking for a fat ho<br>
+    <input type="checkbox" name="tableOne[criteria1]" value="Height"> I am looking for a giant<br>
+    <input type="checkbox" name="tableOne[criteria2]" value="Gender" checked> I am looking for a female<br>
+    <input type="checkbox" name="tableOne[criteria3]" value="Orientation" checked> I am straight<br>
+    <input type="checkbox" name="tableOne[criteria4]" value="Hair"> I am looking for natural green hair<br>
+    <input type="checkbox" name="tableOne[criteria5]" value="Feet"> I want them to have clown sized feet.<br>
+    <br />
+    <br />
+    <label for="tableTwo">
+        <span>Table Two</span>
+    </label>
+    <br />
+    <input type="checkbox" name="tableTwo[weight]" value="Console" checked> I have a console<br>
+    <input type="checkbox" name="tableTwo[category]" value="Online"> I play online games<br>
+    <input type="checkbox" name="tableTwo[criteria0]" value="Casino" checked> I have a gambling addiction<br>
+    <input type="checkbox" name="tableTwo[mongoloid]" value="Twitch" checked> I stream on twitch a lot<br>
+    <input type="submit" value="Submit">
+</form>
+
+Exporting the POST with 3d array as the name of the HTML Input Attribute, tableOne, tableTwo, then inside are the
+actual categories. :). this way we can keep the categories sorted, in case there are duplicate column names within
+each table container.
+<?php
+
+if (isset($_GET['step'])){
+    if ($_GET['step'] == 7){
+        $dump = var_export($_POST);
+        print "dump is: $dump";
+    }
+}
+
+print "explicit example: POST['tableTwo']['criteria0']; = " . $_POST['tableTwo']['criteria0'];
+
+print ",  POST['tableOne']['criteria0']; = " . $_POST['tableOne']['criteria0'];
+
+?>
+
+<form action="test.php?step=8" method="post">
+    <label for="tableOne">
+        <span>Table</span>
+    </label>
+    <br />
+
+    <?php
+    $tables = $_POST;
+    foreach($tables as $key=>$columns){
+        if (is_array($columns)){
+        }
+        foreach($columns as $key2=>$column){
+            ?>
+            <input type="text" name="<?=$key?>[<?=$key2?>]" placeholder="<?=$column?>">
+            <?php
+            print "Key $key, Key2 $key2, $column IS THE TRUTH. THE WAY! THE LIGHT!<br />";
+
+
+        }
+    }
+    ?>
+    <input type="submit" value="Submit">
+<?php
+    ?>
+    <input type="checkbox" name="tableOne[criteria0]" value="Body" checked> I am looking for a fat ho<br>
+    <input type="checkbox" name="tableOne[criteria1]" value="Height"> I am looking for a giant<br>
+    <input type="checkbox" name="tableOne[criteria2]" value="Gender" checked> I am looking for a female<br>
+    <input type="checkbox" name="tableOne[criteria3]" value="Orientation" checked> I am straight<br>
+    <input type="checkbox" name="tableOne[criteria4]" value="Hair"> I am looking for natural green hair<br>
+    <input type="checkbox" name="tableOne[criteria5]" value="Feet"> I want them to have clown sized feet.<br>
+    <br />
+    <br />
+    <label for="tableTwo">
+        <span>Table Two</span>
+    </label>
+    <br />
+    <input type="checkbox" name="tableTwo[weight]" value="Console" checked> I have a console<br>
+    <input type="checkbox" name="tableTwo[category]" value="Online"> I play online games<br>
+    <input type="checkbox" name="tableTwo[criteria0]" value="Casino" checked> I have a gambling addiction<br>
+    <input type="checkbox" name="tableTwo[mongoloid]" value="Twitch" checked> I stream on twitch a lot<br>
+    <input type="submit" value="Submit">
+</form>
+
+<?php
+
+class nofunction
+{
+
+
+    public function __call($method, $args) {
+        print "What a beautiful norming.";
+        print print_r ($args, 1);
+    }
+
+
+}
+$nof = new nofunction();
+print "rady palyer one";
+$nof->fuckThisClassItDoesntExist("I have money of the ear", 24, "where am i passing this?", "does this function even exist");
+
+
+
+?>
+<br />
+<hr>
+<h2>Wizard Step: <i class="stepone">One</i></h2>
+<input type="text" class="emailaddress" name="emailaddress" >
+<textarea class="misspell" style="width:50em;height:5em;"></textarea>
+<div class="response_content"></div>
+<button value="next...">
+
+
+<script>
+
+    $(document).ready(function(){
+       $(".emailaddress").keyup(function(){
+           var address = ($(".emailaddress").val());
+           $.post("test/ajax.php?wizard=1", {email: address}, function (result){
+               $(".response_content").html(result);
+//               $(".response_content").html("Tree Branch");
+               console.log("test");
+
+               var returned_data;
+               returned_data = JSON.parse(result);
+               console.log(returned_data);
+               console.log(result+ "is the difference")
+
+               jd = returned_data;
+
+//               console.log(jd.email);
+//               jQuery.each(returned_data, function(i, val) {
+//                   $("#" + i).append(document.createTextNode(" - " + val));
+//               });
+           });
+       }) ;
+    });
+</script>
+</button>
+    <?php
+
+    $criteria = isset($_GET['step']) ? $_POST : 0;
+
+    print sizeof($_POST) . " is the size of post";
+    if ($criteria) {
+        foreach ($criteria as $key => $postData) {
+            if (is_array($criteria[$key])){
+                print "<br />it is an array <br />";
+                foreach($criteria[$key] as $key2=>$inside){
+                    print "criteria[key][key2] = filter_input (INPUT_POST, $key2, FILTER_SANITIZE_STRING);" .
+                    "that turns out to be : " . $criteria[$key][$key2]."<br />";
+//                    $criteria[$key][$key2] = filter_input(INPUT_POST, $key2, FILTER_SANITIZE_STRING);
+
+                }
+
+            }
+            $criteria[$key] = filter_input(INPUT_POST, $key, FILTER_SANITIZE_STRING);
+        }
+    }
+    print "the filter_input data comes out to be <br /> <h2>" . print_r($criteria, 1) . "</h2>";
+    print_r ($_POST);
+
+//    $wizardModel = $this->getModel('WizardModel', $db);
 
 ?>
