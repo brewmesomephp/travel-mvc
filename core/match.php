@@ -2,7 +2,7 @@
 //error_reporting(E_ALL);
 
 
-
+namespace MatchCore;
 class Match {
 
 	public $db;
@@ -16,16 +16,21 @@ class Match {
     private $diffAnswers;
     
     private $scoreBoard;
+    private $explicitRemote;
+    private $explicitRemoteScore;
     
-    function __construct($userId = "", $db){
-        if (isset($userId)) {
+    function __construct($userId = "", $db, $remote=""){
+        if (isset($userId) && $userId != "") {
             $this->userId = $userId;
         }
             elseif (isset($_SESSION['user_id'])){
                 $this->userId = $_SESSION['user_id'];
             }
-
-//        $this->run();
+        if ($remote != ""){
+                        $this->explicitRemote = $remote;
+        }
+//            $this->debug($this->userId);
+            //        $this->run();
         $this->db = $db;
 
         $this->run();
@@ -44,14 +49,14 @@ class Match {
         if ($userId == ""){
             $userId = $this->userId;
         }
-        $user = $this->db->query("SELECT * FROM users WHERE id='$userId'");
+//        print "userId from inside setUserAnswers: $userId <br />";
+        $user = $this->db->query("SELECT `id`,`city`, `country`, `latitude`, `longitude`, `interests`, `is_vip`,`has_traveled`, `where_traveled`, `preferred_destination`, `cruising_or_touring`, `state_of_health`, `active_or_slow_travel`, `distance_to_travel`, `spontaneous_or_itinerary`, `smoker`, `accommodation_type`, `budget`, `luggage_type`, `foodie`, `alcohol`, `rating_lounge_poolside_beach`, `rating_explore`, `rating_shopping`, `rating_casino`, `rating_tours`, `rating_food`, `rating_spa`, `rating_sports`, `rating_concerts`, `group_or_independent`, `small_or_mega_ship_cruising`, `active_or_sedentary` FROM users WHERE id='$userId'");
         $user = $user->fetch_object();
-        $user = json_encode($user);
-        $user = json_decode($user, true);
 
+
+        $user = json_decode(json_encode($user), true);
 
 		$this->userAnswers = $user;
-
     }
     
     
@@ -60,7 +65,7 @@ class Match {
     }
     
     private function setRemoteUserAnswers($userId){
-        $user = $this->db->query("SELECT * FROM users WHERE id='".$userId."'");
+        $user = $this->db->query("SELECT `id`, `city`, `country`, `marital_status`,`latitude`, `longitude`, `interests`, `is_vip`,`has_traveled`, `where_traveled`, `preferred_destination`, `cruising_or_touring`, `state_of_health`, `active_or_slow_travel`, `distance_to_travel`, `spontaneous_or_itinerary`, `smoker`, `accommodation_type`, `budget`, `luggage_type`, `foodie`, `alcohol`, `rating_lounge_poolside_beach`, `rating_explore`, `rating_shopping`, `rating_casino`, `rating_tours`, `rating_food`, `rating_spa`, `rating_sports`, `rating_concerts`, `group_or_independent`, `small_or_mega_ship_cruising`, `active_or_sedentary` FROM users WHERE id='".$userId."'");
 		$user = $user->fetch_object();
 		$this->userAnswers = $user;
     }
@@ -90,13 +95,24 @@ class Match {
      * @return array (differences in users)
      */
     private function compareUserAnswers($u, $r){
-        
+//        $this->debug($u);
+        if ($r['id'] == 480)
+//        $this->debug($r);
+        if (!is_object($u) || !is_array($u))
+        {
+
+        }
+        elseif( is_double($u) || is_float($u) || is_string($u) || is_int($u) || is_numeric($u) || is_real($u) || is_)
+        if (intval($u)){}
         //this is where we multiply the difference between answers by the weight of the question and subtract that from 100% (match score)
-        $diff['marital_status'] = abs($u['marital_status'] != $r['marital_status']);
+
+//        print "<h1>$api</h1>";
+//        $diff['marital_status'] = abs($u['marital_status'] != $r['marital_status']);
+
+
         $diff['has_traveled'] = abs($u['has_traveled'] != $r['has_traveled']);
 
-        
-        
+
 //        $where_traveled = abs($u['where'] != $r['marital_status']);
         
         //Compare the arrays and store the count in $diff['matching_locations']
@@ -105,7 +121,7 @@ class Match {
         $r_locations = explode("," ,$r['where_traveled']);
         $matching_locations = array_unique(array_intersect($u_locations, $r_locations));
         $diff['matching_locations'] = count($matching_locations);
-        
+        $direct_match = isset($direct_match) ? $direct_match += count($matching_locations) : 0;
         $direct_match += count($matching_locations); //use this as a running counter of matches? 
         //in $diff['matching_locations'], remember that these are MATCHES. The rest of this application
         //deals in mismatches.
@@ -120,7 +136,7 @@ class Match {
 //                distance_to_travel = abs($u['distance_to_travel'] != $r['distance_to_travel']);
         $diff['spontaneous_or_itinerary'] = abs($u['spontaneous_or_itinerary'] != $r['spontaneous_or_itinerary']);
         $diff['smoker'] = abs($u['smoker'] != $r['smoker']);
-        $diff['accommodation_type'] = abs($u['acommodation_type'] != $r['accomodation_type']);
+        $diff['accommodation_type'] = abs($u['accommodation_type'] != $r['accommodation_type']);
         $diff['budget'] = abs($u['budget'] != $r['budget']);
         $diff['luggage_type'] = abs($u['luggage_type'] != $r['luggage_type']);
         
@@ -128,7 +144,7 @@ class Match {
         $diff['foodie'] = abs($u['foodie'] - $r['foodie']);
         $diff['alcohol'] = abs($u['alcohol'] - $r['alcohol']);
         $diff['rating_lounge_poolside_beach'] = abs($u['rating_lounge_poolside_beach'] - $r['rating_lounge_poolside_beach']);
-        $diff['rating_explore'] = abs($u['rating_explore'] - $r['rateing_explore']);
+        $diff['rating_explore'] = abs($u['rating_explore'] - $r['rating_explore']);
         $diff['rating_shopping'] = abs($u['rating_shopping'] - $r['rating_shopping']);
         $diff['rating_casino'] = abs($u['rating_casino'] - $r['rating_casino']);
         $diff['rating_tours'] = abs($u['rating_tours'] - $r['rating_tours']);
@@ -139,7 +155,23 @@ class Match {
         $diff['group_or_independent'] = abs($u['group_or_independent'] != $r['group_or_independent']);
         $diff['small_or_mega_ship_cruising'] = abs($u['small_or_mega_ship_cruising'] != $r['small_or_mega_ship_cruising']);
         $diff['active_or_sedentary'] = abs($u['active_or_sedentary'] != $r['active_or_sedentary']);
-        $diff['primary_language'] = abs($u['primary_language'] != $r['primary_language']);
+
+        $empty = 0;
+        foreach($r as $user){
+            if ($user == ""){
+                $empty++;
+            }
+        }
+        if (!isset($diff['score'])){
+            $diff['score'] = 0;
+        }
+        if ($empty > 5){
+            $diff['score']+=50;
+        }
+
+//        $diff['score'] = 100 - $diff['score'];
+
+//        $diff['primary_language'] = abs($u['primary_language'] != $r['primary_language']);
         
         //now get the distance between the two user's locations
         /* then find the distance each of them are willing to travel to meet each other to discuss the trip
@@ -156,12 +188,46 @@ class Match {
         $u_lon = $u['longitude'];
         $r_lat = $u['latitude'];
         $r_lon = $u['longitude'];
-        $miles_distance = distance($u_lat, $u_lon, $r_lat, $r_lon);
+//        $miles_distance = distance($u_lat, $u_lon, $r_lat, $r_lon);
         $total_travel_to_meet = intval($u['distance_to_travel']) + intval($r['distance_to_travel']);
-        if ($total_travel_to_meet > $miles_distance){
-               
+//        if ($total_travel_to_meet < )
+
+        $r_address = $r['city'] . " " . $r['country'];
+        $r_address = str_replace(" ", "+", $r_address);
+        $u_address = $u['city'] . " " . $u['country'];
+        $u_address = str_replace(" ", "+", $u_address);
+
+        if (strlen($r_address) < 2){
+            $r_address = "";
         }
-        
+        if (strlen($u_address) < 2){
+            $u_address = "";
+        }
+//        print $r_address . ", " . $u_address;
+        if ($r_address != "" && $u_address != "")
+            $api = file_get_contents("http://localhost/distance_api.php?address1=" . $r_address . "&address2=" . $u_address . "&distance=1");
+//
+//        $distance_json = json_decode($api, 1);
+//        $distance_json2 = json_encode($api);
+//        print $distance_json;
+//        print_r($distance_json);
+//        print_r($distance_json2);
+        if (isset($api)){
+//            print $api;
+            $distance = $api;
+        }
+
+
+
+        if (isset($distance)){
+                if ($total_travel_to_meet < $distance){
+                    $diff['total_travel_to_meet'] = (int)(( $distance-$total_travel_to_meet) / 75);
+                }
+                else{
+                    $diff['total_travel_to_meet'] = 0;
+                }
+        }
+
         //adds up the amount of mismatches (subtracts matching_locations because this is a matching variable, not mismatching)
         $non_matching = array_sum($diff) - $diff['matching_locations'];
         $total_possible_matches = count($diff) - 1;
@@ -173,69 +239,112 @@ class Match {
         return $diff;
     }
 
-    function debug($variable){
+    function debug($variable=NULL, $title=""){
+        print "<div style='background-color:#eee'>";
+        print "<h1 style='background-color:#eee;color:#888;font-size:24px;'>Debug: $title</h1>";
+        if ($variable==NULL){
+//            $variable = "";
+            exit;
 
-        if (is_array($variable) || sizeof($variable) > 1){
-            print "is array, or is > 1";
-            $variable = json_encode($variable);
         }
-        print "<p style='font-size:18p; font-variant: small-caps;color:#888;'><u>debug: </u>"; var_dump($variable); print"</p><br />";
+        else {
+
+
+            print "variable type: " . gettype($variable) . "<br />";
+//        var_export($variable);
+            if (is_array($variable) || sizeof($variable) > 1 || is_object($variable)) {
+                print "is array, or is > 1";
+
+                print "<p style='font-size:14px;background-color:#eee; font-variant: small-caps;color:#888;'><u>debug (var_dump): </u>";
+                var_dump($variable);
+                print"</p><br />";
+                print "<p style='font-size:14px;background-color:#eee; font-variant: small-caps;color:#888;'><u>prints \$variable['id'] to test): </u>";
+                $variable->latitude;
+                print"</p><br />";
+                foreach ($variable as $key => $v) {
+                    print $key . ": " . $v . "<br />";
+                }
+
+                $encoded = json_encode($variable);
+                print $encoded . " is encoded";
+                $decoded = json_decode($encoded, true);
+//            print "<br />devoded: $decoded;";
+                foreach ($decoded as $key => $vr) {
+                    if ($vr == NULL || $vr == "") {
+                        $decoded[$key] = -1;
+                        $vr = -1;
+                    }
+                    print "<br />key: $key, value: $vr";
+                }
+
+                $variable = json_encode($variable);
+                print "<p style='font-size:14px;background-color:#eee; font-variant: small-caps;color:#888;'><u>debug (var_dump): </u>";
+                var_dump($variable);
+                print"</p><br />";
+                print "<p style='font-size:14px;background-color:#eee; font-variant: small-caps;color:#888;'><u>debug (var_export): </u>";
+                var_export($variable);
+                print"</p><br />";
+                print "<p style='font-size:14px;background-color:#eee; font-variant: small-caps;color:#888;'><u>debug (json_encode): </u>";
+                print json_encode($variable);
+                print"</p><br />";
+            } else {
+                print "<p style='font-size:14px;background-color:#eee; font-variant: small-caps;color:#888;'><u>debug (print): </u> $variable </p><br />";
+
+            }
+            print "</div>";
+        }
+
     }
     public function run(){
+//        $this->debug(NULL,"Debug test inside 1, 1");
         //here we have the User, Traveler A, who was previously set and good to go.
 
         //now we will run through all other users, and compare values :)
 
         //first we must get the array of all other users
         $this->setUserAnswers($this->userId);
-        $this->debug($this->userAnswers);
-        $this->debug($this->userId);
+//        $this->debug(NULL,"this->setUsernAnswers was just executed on line 239");
+
 
         $db = $this->db;
         $myId = $this->userId;
-        if ($result = $db->query("SELECT `id`,`latitude`, `longitude`, `interests`, `is_vip`,`has_traveled`, `where_traveled`, `preferred_destination`, `cruising_or_touring`, `state_of_health`, `active_or_slow_travel`, `distance_to_travel`, `spontaneous_or_itinerary`, `smoker`, `accommodation_type`, `budget`, `luggage_type`, `foodie`, `alcohol`, `rating_lounge_poolside_beach`, `rating_explore`, `rating_shopping`, `rating_casino`, `rating_tours`, `rating_food`, `rating_spa`, `rating_sports`, `rating_concerts`, `group_or_independent`, `small_or_mega_ship_cruising`, `active_or_sedentary` FROM users WHERE id!='$myId' ORDER BY id DESC")) {
-            printf("Select returned %d rows.\n", $result->num_rows);
-            foreach($result as $key=>$res){
-                $this->remoteUserAnswers[$res['id']] = json_encode($res);
-                print "\$this->remoteUserAnswers[\$res['id']] = json_encode(\$res); = " . print_r(json_encode($res, 1));
-//                print $res['id'];
-//                print json_encode($res);
-//                print "<br />";
 
-//                print "res is " . print_r($res, 1) ;
-//                print $this->remoteAnswers[$res['id']];
+        if ($this->explicitRemote != ""){
+            $query = "SELECT `id`,`city`, `country`, `marital_status`, `longitude`, `interests`, `is_vip`,`has_traveled`, `where_traveled`, `preferred_destination`, `cruising_or_touring`, `state_of_health`, `active_or_slow_travel`, `distance_to_travel`, `spontaneous_or_itinerary`, `smoker`, `accommodation_type`, `budget`, `luggage_type`, `foodie`, `alcohol`, `rating_lounge_poolside_beach`, `rating_explore`, `rating_shopping`, `rating_casino`, `rating_tours`, `rating_food`, `rating_spa`, `rating_sports`, `rating_concerts`, `group_or_independent`, `small_or_mega_ship_cruising`, `active_or_sedentary`, `accommodation_type` FROM users WHERE id='$this->explicitRemote' ORDER BY id DESC";
+        }
+        else{
+            $query = "SELECT `id`,`city`, `country`, `marital_status`, `longitude`, `interests`, `is_vip`,`has_traveled`, `where_traveled`, `preferred_destination`, `cruising_or_touring`, `state_of_health`, `active_or_slow_travel`, `distance_to_travel`, `spontaneous_or_itinerary`, `smoker`, `accommodation_type`, `budget`, `luggage_type`, `foodie`, `alcohol`, `rating_lounge_poolside_beach`, `rating_explore`, `rating_shopping`, `rating_casino`, `rating_tours`, `rating_food`, `rating_spa`, `rating_sports`, `rating_concerts`, `group_or_independent`, `small_or_mega_ship_cruising`, `active_or_sedentary`, `accommodation_type` FROM users WHERE id!='$myId' ORDER BY id DESC";
+        }
+        if ($result = $db->query($query)) {
+//            printf("Select returned %d rows.\n", $result->num_rows);
+            foreach($result as $key=>$res){
+                //assign each row to its key (id)
+                $this->remoteAnswers[$res['id']] = $res;
             }
-            print_r($this->remoteUserAnswers);
-//print_r($this->remote)
-            /* free result set */
+//            print_r($this->remoteAnswers);
+//            print "I am trying to get the id of each individual result for remote.";
+//            print "delving into the remote answers";
+            foreach($this->remoteAnswers as $key=>$answers){
+//                print "key: $key, answers" . print_r($answers, 1) . "<br />";
+//             print "<h2>$key</h2><h3>" . print_r($answers, 1) ." get your hands on this </h3>";
+            }
+//                $this->debug($this->remoteAnswers, "THIS REMOTE ANSWERS!!!!!!!!");
+
             $result->close();
         }
 
 
-        $this->debug(sizeof($stmt));
-
-        $this->debug($stmt);
-
-
-        //		$remoteUserAnswers = json_decode(json_encode($remoteUser->fetch_object()), true);
-
-		print "<h1>\$remoteUserAnswers</h1>";
-		print "<stong>$remoteUserAnswers</stong>";
-
-
-
-        $q = $this->db->prepare('SELECT * FROM users WHERE id != :user_id ');
-        $q->execute([':user_id' => $this->userId]);
-        $user = $q->fetchAll();
-
-        //then, one at a time (foreach) we will compare values, and set the differences in an array
-        $u=$this->userAnswers;
-        foreach($remoteUserAnswers as $r){
+$u = $this->userAnswers;
+        foreach($this->remoteAnswers as $r){
             //set their individual ID as the current remoteUserId
             $this->remoteUserId = $r['id'];
+//            print "inside foreach of this->remoteAnswers as r";
+//            print_r($r);
             
             //Now we're going to compare those answers
+//            print "comparing users now";
             $diff = $this->compareUserAnswers($u, $r);
+//            print print_r($diff, 1) . " is the answrs.";
                 
             //now we're going to store the differences in answers to the diffAnswers array
             $this->diffAnswers[$this->remoteUserId] = $diff;
@@ -243,15 +352,55 @@ class Match {
             $this->diffAnswers[$this->remoteUserId]['score'] = array_sum($diff);
             $this->diffAnswers[$this->remoteUserId]['score'] -= $this->diffAnswers[$this->remoteUserId]['matching_locations'];
             
-                
+//                print "<h1>and for the moment of truth,,,</h1><br /><hr><div style='background-color:#eee'>";
+//                print_r($this->diffAnswers);
+//                print "The sum is: " . array_sum($this->diffAnswers) . "<br />";
+//            print "<h1>the sizeof the arryay is: " . sizeof($this->diffAnswers) . "</h1>";
+//                print "</div>";
             //Now we're going to weight and store the Match % into the scoreBoard array
         }
+        foreach($this->diffAnswers as $key=>$answer_size){
+            $array_sum = array_sum($answer_size);
+//            print "<h1>The array sum of " . $key . " is : <b>$array_sum</b>";
+//            print $key . " is the key...";
+//            print $answer_size['score'] < 58 ? " Score : " . $answer_size['score'] .  " , " : "";
+            if ($key == "score"){
+                if ($answer_size < 60){
+//                    print $answer_size;
+                }
+            }
+        }
+//        print "User 480 is : " . print_r($this->diffAnswers['480'], 1);
+        if ($this->explicitRemote != ""){
+            $this->explicitRemoteScore = $this->diffAnswers[$this->explicitRemote]['score'];
+            print abs(100 - $this->diffAnswers[$this->explicitRemote]['score']) . "%";
+        }
+
+
+        $this->sortByScore();
         
         
         //select all users
         //traverse through each user as $remoteUser
         //$this->remoteUserId = $remoteUser['id'];
     }
+
+
+
+    public function sortByScore(){
+        foreach($this->diffAnswers as $key=>$row){
+            $this->diffAnswers[$key]['id'] = $key;
+//            print "<h1>$key</h1>";
+            $score[$key] = $row['score'];
+//            print sizeof($row) . " is the size of the row . <br />";
+        }
+//        asort($score);
+
+
+        array_multisort($score, SORT_ASC, $this->diffAnswers);
+//        print "The sorted version is: " .  print_r($this->diffAnswers, 1) . "<br />";
+
+}
     
     public function getScores(){
         

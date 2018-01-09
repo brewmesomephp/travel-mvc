@@ -1,4 +1,5 @@
 <?php
+print "hi...";
 //header('Content-type: text/plain');
 /**
  * Created by PhpStorm.
@@ -24,8 +25,8 @@ require_once "core/match.php";
 //}
 
 
-
-$match = new Match("476", $db);
+print "hi~~";
+$match = new Match("481", $db, "480");
 $rnd = rand(1, 291382);
 ?>
 <div class="stateful_response"></div>
@@ -62,7 +63,7 @@ array key being accessed at the time of the call.</h3>";
     print "$antonopolous is the name of the key, and the value therein is $bitcoin<br />";
     }
 <?php
-
+print "hi~~";
 $x['a'] ="Value numero 1";
 $x['b'] ="Value numero 2";
 $x['c'] ="Value numero 3";
@@ -77,7 +78,7 @@ print "<h3>I absolutely love learning the crucial and core functionalities of PH
 replacing foreach(\$bigarray as <b>\$singlekey</b>) with foreach(\$bigarray as <b>\$keyvariablename=>\$singlekeyvaluevariable</b>, 
 I then have access to the string value of the key, rather than only having access to the data that is stored within that 
 key. </h3>";
-
+print "hi.. ";
 //Let's now use an alternative function to manipulate arrays as well as iterate through arrays.
 
 print "<h2>This is a test to use list() instead of array() to assign different values to separate variables. 
@@ -100,6 +101,7 @@ other will be used with 'foreach()'. </h2><br />";
     }
 
 <?php
+
 list( $a, $b, $c, $d) = $x;
 
 
@@ -116,8 +118,8 @@ in this case just to see what is returned when I request the value of \$key, whi
 it is not an associative array. Let's see.</h3><br />";
 
 foreach ($x as $niglet){
-    print current($x) . ": current(x)";
-    print $niglet . ": niglet";
+//    print current($x) . ": current(x)";
+//    print $niglet . ": niglet";
     $niglet = current($x);
 
     next($x);
@@ -128,7 +130,7 @@ in this case just to see what is returned when I request the value of \$key, whi
 it is not an associative array. Let's see.</h3><br />";
 ?>
 
-
+/*
     foreach ($x as $niglet){
     print current($x) . ": current(x)";
     print $niglet . ": niglet";
@@ -137,7 +139,7 @@ it is not an associative array. Let's see.</h3><br />";
     next($x);
     }
 
-
+*/
 
 <?php
 
@@ -220,10 +222,10 @@ $tableCriteria = isset($_GET['step']) ? $_POST : -1;
 
 
 
-foreach($tableCriteria as $key=>$tableName){
-    print "key: $key <br />" ;
-    print print_r($tableName, 1). "<br />";
-}
+//foreach($tableCriteria as $key=>$tableName){
+//    print "key: $key <br />" ;
+//    print print_r($tableName, 1). "<br />";
+//}
 
 $array2[] = 2;
 print implode(",", $array2);
@@ -244,13 +246,13 @@ $z['xyz']['you'] = "9yijdl";
 $zk = array_keys($z);
 print_r($ak);
 
-foreach($z as $item=>$value){
-    $value = print_r($value, true);
-
-
-    print "<br />item: $item<br />";
-    print ", value: $value<br />";
-}
+//foreach($z as $item=>$value){
+//    $value = print_r($value, true);
+//
+//
+//    print "<br />item: $item<br />";
+//    print ", value: $value<br />";
+//}
 
 
 
@@ -312,7 +314,7 @@ print ",  POST['tableOne']['criteria0']; = " . $_POST['tableOne']['criteria0'];
             ?>
             <input type="text" name="<?=$key?>[<?=$key2?>]" placeholder="<?=$column?>">
             <?php
-            print "Key $key, Key2 $key2, $column IS THE TRUTH. THE WAY! THE LIGHT!<br />";
+//            print "Key $key, Key2 $key2, $column IS THE TRUTH. THE WAY! THE LIGHT!<br />";
 
 
         }
@@ -405,9 +407,9 @@ $nof->fuckThisClassItDoesntExist("I have money of the ear", 24, "where am i pass
             if (is_array($criteria[$key])){
                 print "<br />it is an array <br />";
                 foreach($criteria[$key] as $key2=>$inside){
-                    print "criteria[key][key2] = filter_input (INPUT_POST, $key2, FILTER_SANITIZE_STRING);" .
-                    "that turns out to be : " . $criteria[$key][$key2]."<br />";
-//                    $criteria[$key][$key2] = filter_input(INPUT_POST, $key2, FILTER_SANITIZE_STRING);
+//                    print "criteria[key][key2] = filter_input (INPUT_POST, $key2, FILTER_SANITIZE_STRING);" .
+//                    "that turns out to be : " . $criteria[$key][$key2]."<br />";
+////                    $criteria[$key][$key2] = filter_input(INPUT_POST, $key2, FILTER_SANITIZE_STRING);
 
                 }
 
@@ -418,6 +420,10 @@ $nof->fuckThisClassItDoesntExist("I have money of the ear", 24, "where am i pass
     print "the filter_input data comes out to be <br /> <h2>" . print_r($criteria, 1) . "</h2>";
     print_r ($_POST);
 
-//    $wizardModel = $this->getModel('WizardModel', $db);
+    set_time_limit(100);
+    $api = file_get_contents("http://diffseo.com/gamerstack_live/distance_restful_api.php?address1=23+woodcrest+circle+monroe+township+nj+08831&address2=5045+voltaire+street+san+diego+ca+92107");
+    print_r( $api);
+
+    //    $wizardModel = $this->getModel('WizardModel', $db);
 
 ?>

@@ -22,8 +22,11 @@
 						<div class="card card-user">
 							<div class="content">
 								<div class="author">
-									<a href="'.$system->getDomain().'/user/'.$person->id.'">
-										<img class="avatar" src="'.$system->getProfilePicture($person).'">
+									<a href="'.$system->getDomain().'/user/'.$person->id.'">';
+                                            require_once ('./core/match.php');
+									      $match = new MatchCore\Match("", $db, $person->id);
+
+										echo '<img class="avatar" src="'.$system->getProfilePicture($person).'">
 										<h4 class="title">'.$system->getFirstName($person->full_name).', '.$person->age.'</h4>
 									</a>
 								</div>

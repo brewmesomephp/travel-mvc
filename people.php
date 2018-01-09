@@ -164,3 +164,5 @@ $people = $db->query($people);
 require('inc/top.php');
 require('layout/people.php');
 require('inc/bottom.php');
+require_once ('core/match.php');
+//$match = new Match("",$db,);
