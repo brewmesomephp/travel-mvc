@@ -1,5 +1,5 @@
 <?php
-// Condor5 Installer v1.0
+// JosephAlai Installer v1.0
 function checkPHPVersion() {
     $version = phpversion();
     if($version >= 5.3) {
@@ -124,7 +124,7 @@ if(isset($_POST['install'])) {
 	<meta charset="utf-8">
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport'>
     <meta name="viewport" content="width=device-width" />
-    <title> Condor5 Installer </title>
+    <title> JosephAlai Installer </title>
     <!-- Plugins -->
     <link href="../assets/bootstrap3/css/bootstrap.css" rel="stylesheet">
     <link href="../assets/css/jquery.gritter.css" rel="stylesheet">
@@ -140,7 +140,7 @@ if(isset($_POST['install'])) {
     <div class="container">
         <div class="col-lg-12 well">
             <div class="col-lg-7 pull-left">
-                <h2> Condor5 Installer </h2>
+                <h2> JosephAlai Installer </h2>
                 <div class="col-lg-8 pull-left">
                     <form action="" method="post">
                         <div class="form-group">
@@ -179,7 +179,7 @@ if(isset($_POST['install'])) {
                     <p class="rq"> .htaccess: <?=checkHtaccess()?> </p>
                     <p class="rq"> CHMOD 755 /core/ folder: <?=checkIsWritable()?> </p>
                     <br>
-                    <b class="help-block" style="width:300px;"> Having issues? Open a <a href="https://condor5.zendesk.com/hc/en-us/requests/new" target="_blank" class="text-success"> support ticket </a> </b>
+                    <b class="help-block" style="width:300px;"> Having issues? Open a <a href="https://JosephAlai.zendesk.com/hc/en-us/requests/new" target="_blank" class="text-success"> support ticket </a> </b>
                 </div>
             </div>
         </div>

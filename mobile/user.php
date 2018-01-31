@@ -105,7 +105,7 @@ if($user->country == $profile->country) {
 <html>
 <head> <meta name="robots" content="noindex">
   <meta charset="utf-8">
-  <title>MatchMe Mobile</title>
+  <title>Senior Travel Buddy Mobile</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <link rel="stylesheet" type="text/css" href="css/normalize.css">
   <link rel="stylesheet" type="text/css" href="css/framework.css">

@@ -482,7 +482,7 @@ CREATE TABLE `plugins` (
 --
 
 INSERT INTO `plugins` (`id`, `name`, `author`, `version`, `icon`, `path`, `is_active`) VALUES
-(2, 'Mass Email', 'Condor5', '2.7', 'fa-envelope', 'mass_email', 1);
+(2, 'Mass Email', 'JosephAlai', '2.7', 'fa-envelope', 'mass_email', 1);
 
 -- --------------------------------------------------------
 

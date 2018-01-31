@@ -118,7 +118,6 @@
                 <ul>
                 <li> <a href="ads.php"> Configure Ads </a> </li>
                 <li> <a href="payments.php"> Configure Payments </a> </li>
-                <li> <a href="https://codecanyon.net/item/matchme-complete-dating-script/12494116/support" target="_blank"> Contact Support </a> </li>
                 </ul>
             </div>
         </div>

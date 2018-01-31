@@ -51,7 +51,7 @@ if(isset($_GET['t'])) {
 					"amount" => $price*100, 
 					"currency" => strtolower($settings->currency),
 					"source" => $stripe_token,
-					"description" => 'MatchMe VIP Account')
+					"description" => 'Senior Travel Buddy VIP Account')
 				);
 
 				$start = time();
@@ -100,7 +100,7 @@ if(isset($_GET['t'])) {
 					"amount" => $price*100, 
 					"currency" => strtolower($settings->currency),
 					"source" => $stripe_token,
-					"description" => 'MatchMe Credits')
+					"description" => 'Senior Travel Buddy Credits')
 				);
 
 				$db->query('UPDATE users SET credits=credits+'.$_GET['amount'].' WHERE id='.$user->id.'');

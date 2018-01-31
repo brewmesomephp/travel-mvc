@@ -49,7 +49,7 @@ if($check->num_rows >= 1) {
 <html>
 <head> <meta name="robots" content="noindex">
   <meta charset="utf-8">
-  <title>MatchMe - Login</title>
+  <title>Senior Travel Buddy - Login</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <link rel="stylesheet" type="text/css" href="css/normalize.css">
   <link rel="stylesheet" type="text/css" href="css/framework.css">
